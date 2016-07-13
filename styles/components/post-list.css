@@ -20,7 +20,8 @@
     @media screen and (min-width:768px) {
         display:flex;
         flex-direction:row;
-        margin:var(--small-spacing) -var(--small-spacing);
+        flex-wrap:wrap;
+        margin:var(--large-spacing) 0 var(--small-spacing);
     }
 }
 
@@ -31,14 +32,15 @@
         border-radius:var(--post-border-radius);
 
         @media screen and (min-width:768px) {
-            flex:1;
-            margin:0 var(--small-spacing);
+            width:28%;
+            flex-grow:1;
+            margin:0 var(--small-spacing) var(--large-spacing);
 
-            &:first-child{
+            &:nth-child(3n+1){
                 margin-left:0;
             }
 
-            &:last-child{
+            &:nth-child(3n+3){
                 margin-right:0;
             }
         }
@@ -88,5 +90,6 @@
 .blog-post{
     &.featured-post{
         margin:0;
+        width:100%;
     }    
 }

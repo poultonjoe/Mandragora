@@ -64,3 +64,12 @@
         top:-175px;
     }
 }
+
+.hero-services:before{
+    background-image:url(/images/face3.png);
+    top:-124px;
+
+    @media screen and (min-width:768px) {
+        top:-164px;
+    }
+}

@@ -51,3 +51,16 @@
         color:var(--hero-title-color);
         font-size:1.375em;
     }
+
+.hero-home:before{
+    background-image:url(/images/face1.png);
+}
+
+.hero-404:before{
+    background-image:url(/images/face5.png);
+    top:-133px;
+
+    @media screen and (min-width:768px) {
+        top:-175px;
+    }
+}

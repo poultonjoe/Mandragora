@@ -1,0 +1,47 @@
+@import 'variables.css';
+
+:root{
+    --body-font-color:var(--bunker);
+    --body-font-size:16px;
+    --body-line-height:1.25;
+
+    --link-color:var(--windsor);
+    --link-color-email:var(--spray);
+    --link-color-tel:var(--mantis);
+}
+
+body{
+    font-size:var(--body-font-size);
+    line-height:var(--body-line-height);
+    color:var(--body-font-color);
+}
+
+h1{
+    font-size:3.125em;
+    margin:0 0 0.5em;
+}
+
+h2,
+.intro{
+    font-size:1.375em;
+    margin:0 0 1em;
+}
+
+p{
+    font-size:1.125em;
+    margin:0 0 1em;
+}
+
+a{
+    text-decoration:none;
+    cursor:pointer;
+    color:var(--link-color);
+}
+
+a[href^=mailto]{
+    color:var(--link-color-email);
+}
+
+a[href^=tel]{
+    color:var(--link-color-tel);
+}

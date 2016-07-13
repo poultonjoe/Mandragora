@@ -1,0 +1,92 @@
+@import '../variables.css';
+
+:root{
+    --post-margin:0 0 var(--large-spacing);
+    --post-background-color:#fff;
+    --post-border-radius:10px;
+
+    --post-image-background-color:var(--windsor);
+    --post-image-border-width:2px;
+    --post-image-border-color:var(--windsor);
+    --post-image-border-radius:10px 10px 0 0;
+    --post-image-margin:0 0 var(--small-spacing);
+
+    --services-post-font-color:#fff;
+    --services-post-title-color:var(--mantis);
+    --services-post-image-border-radius:10px;
+}
+
+.post-list{
+    @media screen and (min-width:768px) {
+        display:flex;
+        flex-direction:row;
+        margin:var(--small-spacing) -var(--small-spacing);
+    }
+}
+
+    .post{
+        background:var(--post-background-color);
+        margin:var(--post-margin);
+        color:var(--body-font-color);
+        border-radius:var(--post-border-radius);
+
+        @media screen and (min-width:768px) {
+            flex:1;
+            margin:0 var(--small-spacing);
+
+            &:first-child{
+                margin-left:0;
+            }
+
+            &:last-child{
+                margin-right:0;
+            }
+        }
+    }
+
+        .post-image{
+            background-color:var(--post-image-background-color);
+            border:none;
+            border-bottom:var(--post-image-border-width) solid var(--post-image-border-color);
+            border-radius:var(--post-image-border-radius);
+            width:100%;
+            height:200px;
+            margin:var(--post-image-margin);
+        }
+
+        .post-body{
+            padding:0 var(--small-spacing);
+            overflow:hidden;
+        }
+
+            .post-title{
+                font-size:1.375em;
+            }
+
+            .post-lead-in{
+
+            }
+
+.services-post{
+    background:transparent;
+    color:var(--services-post-font-color);
+}
+
+    .services-post-image{
+        border:none;
+        border-radius:var(--services-post-image-border-radius);
+    }
+
+    .services-post-body{
+        padding:0;
+    }
+
+        .services-post-title{
+            color:var(--services-post-title-color);
+        }
+
+.blog-post{
+    &.featured-post{
+        margin:0;
+    }    
+}

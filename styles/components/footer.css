@@ -1,0 +1,104 @@
+@import "../variables.css";
+
+:root{
+    --footer-background-color:var(--tuna);
+}
+
+.site-footer{
+    font-size:1rem;
+    background:var(--footer-background-color);
+    width:100%;
+    position:relative;
+    z-index:10;
+}
+
+    .site-footer-inner{
+        padding:var(--small-spacing);
+        margin:0 auto;
+        color:#fff;
+        max-width:var(--max-width);
+        font-size:0.75rem;
+        text-align:center;
+        
+        @media (min-width:768px) {
+            text-align:left;
+        }
+    }
+    
+        .footer-info{
+            box-sizing:border-box;
+            margin:0 auto 1.5em;
+            padding:60px 0 0 0;
+            position:relative;
+
+            &:before{
+                content:'';
+                display:block;
+                width:25px;
+                height:36px;
+                position:absolute;
+                top:0;
+                left:50%;
+                margin-left:-13px;
+                background-repeat:no-repeat;
+                background-image:url(/images/footer_logo.png);
+                background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAvCAMAAABaMFMtAAAAM1BMVEUAAAD///////////////////////////////////////////////////////////////+3leKCAAAAEHRSTlMAECAwQFBgcICPn6+/z9/vIxqCigAAAW5JREFUeAGN0V0amyAQheEDjDjyw5z9r7ZGLaKxqd9FdHxeAyRYi6UUxdqy3oRtlP1xwJ6SNACOa7KNdX8sg2AE4ik4f4sMZFoX5m4ik86T6RCVzDcRyTiT0yGmRspVSGWpzHIIWWm7iZlrsQsU0q7Cc82dwht5Fdg2dwrol/jscxRogxBVD6+Kz4ffRyDodn1TkN95FP5O34nW+Fz5Kwok8ytLHqcA/GIca7MDumBTB7h4Llam46Vzp4IIQPYhBcBNUPIiaIsHdLuHJJYHkUIXU34Q0R0r75v011UsOQCSx4MCIXdRHYBYOVYEgD9/D6/Gey069O9IfMyW9//ce1F69R8CPRlFGoVshavQURyrjWKC/Ed4wPrgYF+iAsNGpuM+DkvPAEKfElzdLuinNYe13IkAIgGIw0k+eetvCD7F/qA5bE3sVVWtfbKAo8jnIvCTWMTQZLzXAi65xEumDvf80s731eGxMGsqi0aPoT8Noz2QbCK24wAAAABJRU5ErkJggg==);
+                background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMCIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMzMgNDciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMzIDQ3OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6I0ZGRkZGRjt9PC9zdHlsZT48Zz48Zz48cG9seWdvbiBjbGFzcz0ic3QwIiBwb2ludHM9IjguMSwyMC43IDExLjUsMjIgOC4xLDIzLjQgIi8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTIxLjIsMjJsMy40LDEuNHYtMi43TDIxLjIsMjJ6IE0yMS4yLDIybDMuNCwxLjR2LTIuN0wyMS4yLDIyeiBNMC40LDEzLjl2MTYuNmMwLDguMyw2LjIsMTUuMSwxNC4zLDE1LjljMC42LDAuMSwxLjIsMC4xLDEuNywwLjFjMC42LDAsMS4yLDAsMS43LTAuMWgwYzgtMC45LDE0LjMtNy43LDE0LjMtMTUuOVYxMy45SDAuNHogTTMuNywyNy45di0yLjdsMi4zLTF2LTQuM0wzLjcsMTl2LTIuN2wxMSw0Ljh2MkwzLjcsMjcuOXogTTIxLjksMzQuMmMwLDAuOS0wLjEsMS43LTAuMywyLjVjLTAuMiwwLjgtMC41LDEuNS0xLDIuMWMtMC41LDAuNi0xLDEuMS0xLjcsMS40Yy0wLjcsMC4zLTEuNiwwLjUtMi42LDAuNWMtMC45LDAtMS43LTAuMi0yLjQtMC41Yy0wLjctMC4zLTEuMi0wLjgtMS43LTEuNGMtMC41LTAuNi0wLjgtMS4yLTEuMS0ycy0wLjQtMS41LTAuNC0yLjN2LTRoMTEuMVYzNC4yeiBNMjkuMSwxOWwtMi4zLDAuOXY0LjNsMi4zLDF2Mi43bC0xMS00Ljh2LTJsMTEtNC44VjE5eiBNMjQuNywyMC43TDIxLjIsMjJsMy40LDEuNFYyMC43eiBNMTMuOSwzN2MwLjMsMC40LDAuNiwwLjYsMSwwLjhjMC40LDAuMiwxLDAuMywxLjYsMC4zYzAuNSwwLDEtMC4xLDEuNC0wLjNjMC40LTAuMiwwLjctMC41LDEtMC44YzAuMy0wLjQsMC41LTAuOCwwLjYtMS4yYzAuMS0wLjUsMC4yLTEsMC4yLTEuNVYzM2gtNi42djEuM2MwLDAuNiwwLjEsMS4xLDAuMiwxLjZDMTMuNCwzNi4zLDEzLjYsMzYuNywxMy45LDM3eiIvPjxnPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yNi42LDAuM1Y4aDBsLTQuNy03LjdoLTMuM3YxMS4xSDIxVjMuNWgwbDQuOCw3LjloMy4yVjAuM0gyNi42eiIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMi41LDAuM0wxMCw3LjZoMEw3LjQsMC4zSDMuN3YxMS4xaDIuNFYyLjloMEw5LDExLjRoMS45bDIuOS04LjVoMHY4LjVoMi40VjAuM0gxMi41eiIvPjwvZz48L2c+PC9nPjwvc3ZnPg==);
+            }
+
+            @media (min-width:768px) {
+                float:left;
+                width:50%;
+                margin:0;
+                padding:0 0 0 46px;
+
+                &:before{
+                    left:0;
+                    margin:0;
+                }
+            }
+        }
+        
+            .footer-info-copyright,
+            .footer-info-registration{
+                line-height:1.5em;
+            }
+        
+        .footer-navigation{
+            display:block;
+            margin:0 auto;
+        }
+
+            .footer-menu-items{
+                margin:0;
+                padding:0;
+                list-style:none;
+
+                @media (min-width:768px) {
+                    float:right;
+                    width:50%;
+                    text-align:right;
+                }
+            }
+
+                .footer-menu-item{
+                    display:inline-block;
+                    margin:0 var(--large-spacing) 0 0;
+                    
+                    &:last-child{
+                        margin:0;
+                    }
+                    
+                    @media (min-width:768px) {
+                        line-height:3em;
+                    }
+                }
+
+                    .footer-menu-link{
+                        color:#fff;
+                        
+                        &.is-active,
+                        &:hover{
+                            text-decoration:underline;
+                        }
+                    }

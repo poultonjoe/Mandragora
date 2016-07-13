@@ -1,0 +1,62 @@
+@import '../components/hero.css';
+@import '../components/post-list.css';
+
+:root{
+    --home-section-color:#fff;
+    --home-section-margin:0 0 var(--large-spacing);
+
+    --home-section-title-color:var(--spray);
+
+    --home-section-link-color:var(--spray);
+
+    --contact-us-title-color:var(--mantis);
+}
+
+.home-section{
+    color:var(--home-section-color);
+    margin:var(--home-section-margin);
+}
+
+    .home-section-title{
+        color:var(--home-section-title-color);
+    }
+
+    .home-section-post-list{
+        margin:var(--large-spacing) 0 var(--small-spacing);
+    }
+
+.about-mandragora{
+    a{
+        color:var(--home-section-link-color);
+    }
+}
+
+.contact-us{
+    max-width:var(--max-content-width);
+    margin:0 auto;
+    padding:var(--small-spacing);
+}
+
+    .contact-us-logo{
+        width:120px;
+        height:170px;
+        background-image:url(/images/purple_face.png);
+        background-repeat:no-repeat;
+        background-size:120px 170px;
+        float:right;
+        margin-left:var(--large-spacing);
+        display:none;
+
+        @media screen and (min-width:768px) {
+            display:block;
+        }
+    }
+
+    .contact-us-title{
+        color:var(--contact-us-title-color);
+    }
+
+    .contact-us-lead-in{
+        font-size:1.375em;
+        font-weight:bold;
+    }

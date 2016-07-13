@@ -1,0 +1,8 @@
+@import "colours.css";
+
+:root{
+    --max-width:1024px;
+    --max-content-width:660px;
+    --small-spacing:20px;
+    --large-spacing:40px;
+}

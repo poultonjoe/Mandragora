@@ -9,7 +9,7 @@ export function stickyHeader() {
     }
 }
 
-export default function toggleMenu(e) {
+export function toggleMenu(e) {
     e.preventDefault();
     
     const html = document.documentElement;

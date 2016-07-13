@@ -7,7 +7,7 @@ function bindHandlers() {
         stickyHeader();
         setBackgroundHeight();
     });
-    document.addEventListener('click', function(e) {
+    document.querySelector('.menu-button').addEventListener('click', function(e) {
         toggleMenu(e);
     }, false);
 }

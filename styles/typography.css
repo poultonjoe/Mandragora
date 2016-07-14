@@ -18,18 +18,18 @@ body{
 }
 
 h1{
-    font-size:3.125em;
-    margin:0 0 0.5em;
+    font-size:2.5em;
+    margin:0 0 0.3em;
 }
 
 h2,
 .intro{
-    font-size:1.375em;
+    font-size:1.25em;
     margin:0 0 1em;
 }
 
 p{
-    font-size:1.125em;
+    font-size:1.1em;
     margin:0 0 1em;
 }
 

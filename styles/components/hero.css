@@ -74,3 +74,21 @@
         top:-164px;
     }
 }
+
+.hero-contact:before{
+    background-image:url(/images/face2.png);
+    top:-124px;
+
+    @media screen and (min-width:768px) {
+        top:-164px;
+    }
+}
+
+.hero-contact-thanks:before{
+    background-image:url(/images/face4.png);
+    top:-132px;
+
+    @media screen and (min-width:768px) {
+        top:-176px;
+    }
+}

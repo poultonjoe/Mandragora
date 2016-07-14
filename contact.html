@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Mandragora Translations</title>
+        <link rel="stylesheet" href="dist/bundle.css" />
+    </head>
+    <body>
+        <div class="background"></div>
+        <header role="banner" class="site-header">
+            <div class="site-header-inner clearfix">
+                <nav role="navigation" class="main-menu" id="main-menu">
+                    <ul class="language-switcher-items">
+                        <li class="language-switcher-item">
+                            <a href="/en" class="language-switcher-link is-active" title="English">
+                                en
+                            </a>
+                        </li>
+                        <li class="language-switcher-item">
+                            <a href="/es" class="language-switcher-link" title="Espanol">
+                                es
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <ul class="main-menu-items">
+                        <li class="main-menu-item">
+                            <a href="/services" class="main-menu-link" title="Services">
+                                Services
+                            </a>
+                        </li>
+                        <li class="main-menu-item">
+                            <a href="/blog" class="main-menu-link" title="Blog">
+                                Blog
+                            </a>
+                        </li>
+                        <li class="main-menu-item">
+                            <a href="/contact" class="main-menu-link" title="Contact">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="logo">
+                    <a href="/" title="Mandragora" class="logo-link">
+                        Mandragora
+                    </a>
+                </div>
+                <a href="#main-menu" class="menu-button"><span>Toggle menu</span></a>
+            </div>
+        </header>
+        
+        <main role="main" class="site-content">
+            <section class="hero hero-contact">
+                <h1 class="hero-title">Don't be shy!</h1>
+                <p class="hero-lead-in">For a free quotation please get in touch using the form below. Remember to include as much as possible about your project for a speedy response.</p>
+                <form class="form contact-form" method="post" action="/post">
+                    <div class="form-field-group">
+                        <div class="form-field">
+                            <label for="first-name" class="form-label form-label-hidden">first name</label>
+                            <input required id="first-name" class="form-input form-input-text" placeholder="first name*">
+                        </div>
+                        <div class="form-field">
+                            <label for="last-name" class="form-label form-label-hidden">last name</label>
+                            <input required id="last-name" class="form-input form-input-text" placeholder="last name*">
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="email" class="form-label form-label-hidden">email</label>
+                        <input required id="email" class="form-input form-input-email" type="email" placeholder="e-mail address*">
+                    </div>
+                    <div class="form-field">
+                        <label for="subject" class="form-label form-label-hidden">subject</label>
+                        <input required id="subject" class="form-input form-input-text" placeholder="subject*">
+                    </div>
+                    <div class="form-field-group">
+                        <div class="form-field form-field-select">
+                            <label for="work-type" class="form-label form-label-hidden">work type</label>
+                            <select id="work-type" class="form-select">
+                                <option>type of work</option>
+                            </select>
+                        </div>
+                        <div class="form-field form-field-select">
+                            <label for="delivery-date" class="form-label form-label-hidden">delivery date</label>
+                            <select id="delivery-date" class="form-select">
+                                <option>preferred delivery date</option>
+                            </select>
+                        </div>
+                        <div class="form-field form-field-select">
+                            <label for="collection-method" class="form-label form-label-hidden">collection method</label>
+                            <select id="collection-method" class="form-select">
+                                <option>collection method</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-field form-field-file" data-file="upload document">
+                        <label for="upload-document" class="form-label form-label-hidden">upload document</label>
+                        <input required id="upload-document" class="form-input form-input-file" type="file" placeholder="first name*">
+                    </div>
+                    <div class="form-field">
+                        <label for="message" class="form-label">message*</label>
+                        <textarea required id="message" class="form-textarea"></textarea>
+                    </div>
+                    <div class="form-footnote">*required</div>
+                    <button class="button button-primary button-large button-send">Send enquiry</button>
+                </form>
+            </section>
+        </main>
+        
+        <footer role="contentinfo" class="site-footer">
+            <div class="site-footer-inner clearfix">
+                <div class="footer-info">
+                    <div class="footer-info-copyright">Copyright Mandragora Translations &copy; 2016</div>
+                    <div class="footer-info-registration">Registration number 12341234XXX32D</div>
+                </div>
+                <nav role="navigation" class="footer-menu">
+                    <ul class="footer-menu-items">
+                        <li class="footer-menu-item">
+                            <a href="/services" class="footer-menu-link" title="Services">
+                                Services
+                            </a>
+                        </li>
+                        <li class="footer-menu-item">
+                            <a href="/blog" class="footer-menu-link" title="Blog">
+                                Blog
+                            </a>
+                        </li>
+                        <li class="footer-menu-item">
+                            <a href="/contact" class="footer-menu-link" title="Contact">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+        <script src="dist/index.js"></script>
+    </body>
+</html>

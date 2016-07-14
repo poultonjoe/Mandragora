@@ -29,6 +29,7 @@ module.exports = {
             require('postcss-import')({
                 addDependencyTo: webpack
             }),
+            require('postcss-apply'),
             require('precss')
         ];
     },

@@ -25,6 +25,10 @@
         margin:var(--large-spacing) 0 var(--small-spacing);
     }
 
+        .home-section-post-list .services-post{
+            margin-bottom:0;
+        }
+
 .about-mandragora{
     a{
         color:var(--home-section-link-color);

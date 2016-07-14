@@ -1,0 +1,17 @@
+@import '../variables';
+@import '../components/form';
+@import '../components/button';
+
+:root{
+
+}
+
+.form-footnote{
+    float:left;
+    margin-top:-10px;
+}
+
+.button-send{
+    float:right;
+    margin-top:-10px;
+}

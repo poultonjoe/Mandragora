@@ -4,6 +4,16 @@
     --footer-background-color:var(--tuna);
 }
 
+.site-credit{
+    font-size:0.9em;
+    text-align:center;
+    padding-top:20px;
+}
+
+.site-credit-link{
+    color:#6fcbda;
+}
+
 .site-footer{
     font-size:1rem;
     background:var(--footer-background-color);
@@ -102,3 +112,4 @@
                             text-decoration:underline;
                         }
                     }
+

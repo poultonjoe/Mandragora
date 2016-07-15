@@ -9,7 +9,6 @@
     --post-image-border-width:2px;
     --post-image-border-color:var(--windsor);
     --post-image-border-radius:10px 10px 0 0;
-    --post-image-margin:0 0 var(--small-spacing);
 
     --services-post-font-color:#fff;
     --services-post-title-color:var(--mantis);
@@ -46,27 +45,26 @@
         }
     }
 
-        .post-image{
+        .post-image-wrap{
             background-color:var(--post-image-background-color);
             border:none;
             border-bottom:var(--post-image-border-width) solid var(--post-image-border-color);
             border-radius:var(--post-image-border-radius);
             width:100%;
             height:200px;
-            margin:var(--post-image-margin);
         }
 
         .post-body{
-            padding:0 var(--small-spacing);
+            padding:var(--small-spacing);
             overflow:hidden;
+
+            :last-child{
+                margin:0;
+            }
         }
 
             .post-title{
                 font-size:1.375em;
-            }
-
-            .post-lead-in{
-
             }
 
 .services-post{
@@ -74,22 +72,45 @@
     color:var(--services-post-font-color);
 }
 
-    .services-post-image{
+    .services-post-image-wrap{
         border:none;
         border-radius:var(--services-post-image-border-radius);
+        margin-bottom:var(--small-spacing);
     }
 
     .services-post-body{
-        padding:0;
+        padding:var(--small-spacing) 0 0;
     }
 
         .services-post-title{
             color:var(--services-post-title-color);
         }
 
-.blog-post{
-    &.featured-post{
-        margin:0;
-        width:100%;
-    }    
+.featured-post{
+    margin:0;
+    width:100%;
 }
+
+    .post-image-wrap{
+        .featured-post & {
+            @media screen and (min-width:768px) {
+                margin-bottom:0;
+            }
+        }
+    }
+
+    .post-title{
+        .featured-post & {
+            @media screen and (min-width:768px) {
+                font-size:2.5em;
+            }
+        }
+    }
+
+    .post-body{
+        .featured-post & {
+            @media screen and (min-width:768px) {
+                padding:var(--large-spacing);
+            }
+        }
+    }

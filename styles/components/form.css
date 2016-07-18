@@ -19,6 +19,7 @@
         @media screen and (min-width:768px) {
             display:flex;
             flex-direction:row;
+            justify-content:space-between;
         }
     }
 
@@ -27,7 +28,8 @@
 
         .form-field-group & {
             @media screen and (min-width:768px) {
-                flex-grow:1;
+                /*flex-grow:1;*/
+                width:32%;
                 margin:var(--form-field-grouped-margin);
 
                 &:first-child{
@@ -114,6 +116,10 @@
         background:transparent;
         -webkit-appearance:textfield;
         color:var(--body-font-color);
+    }
+
+    .form-input-date{
+        height:20px;
     }
 
     .form-input-file{

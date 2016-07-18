@@ -77,20 +77,27 @@
                             <label for="work-type" class="form-label form-label-hidden">work type</label>
                             <select id="work-type" class="form-select">
                                 <option>type of work</option>
+                                <option value="certified">Certified translation</option>
+                                <option value="standard">Standard translation</option>
+                                <option value="unknown">Other - please state in your enquiry</option>
                             </select>
                         </div>
-                        <div class="form-field form-field-select">
+                        <div class="form-field">
                             <label for="delivery-date" class="form-label form-label-hidden">delivery date</label>
-                            <select id="delivery-date" class="form-select">
-                                <option>preferred delivery date</option>
-                            </select>
+                            <input id="delivery-date" class="form-input form-input-date" type="date">
                         </div>
                         <div class="form-field form-field-select">
                             <label for="collection-method" class="form-label form-label-hidden">collection method</label>
-                            <select id="collection-method" class="form-select">
+                            <select id="collection-method" class="form-select collection-method">
                                 <option>collection method</option>
+                                <option value="email">Email</option>
+                                <option value="inperson">In person</option>
+                                <option value="post">By post</option>
                             </select>
                         </div>
+                    </div>
+                    <div class="form-field-group address-fields" style="display:none">
+                        TODO: Add actual fields
                     </div>
                     <div class="form-field form-field-file" data-file="upload document">
                         <label for="upload-document" class="form-label form-label-hidden">upload document</label>

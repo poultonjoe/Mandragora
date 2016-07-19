@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "mocha"
+    "build": "webpack",
+    "test": "mocha",
+    "watch": "webpack --watch"
   },
   "author": "leesus",
   "license": "MIT",

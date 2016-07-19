@@ -92,7 +92,8 @@
                 }
             }
             
-                .main-menu-item{
+                .main-menu-item,
+                .main-menu-items>li{
                     margin:0 0 calc(var(--small-spacing)/2);
         
                     &:last-child{
@@ -110,7 +111,8 @@
                     }
                 }
                 
-                    .main-menu-link{
+                    .main-menu-link,
+                    .main-menu-items>li>a{
                         color:var(--body-font-color);
                         text-transform:uppercase;
                         text-decoration:none;
@@ -136,7 +138,8 @@
             }
         }
         
-            .language-switcher-item{
+            .language-switcher-item,
+            .language-switcher-items>li{
                 margin:0 calc(var(--small-spacing)/2) 0 0;
                 float:left;
     
@@ -154,7 +157,8 @@
                 }
             }
             
-                .language-switcher-link{
+                .language-switcher-link,
+                .language-switcher-items>li>a{
                     color:var(--body-font-color);
                     text-align:center;
                     text-transform:uppercase;

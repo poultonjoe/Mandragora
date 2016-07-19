@@ -8,12 +8,9 @@
 }
 
 .blog{
-    .site-content{
-        padding-top:0;
-    }
-
     .featured-post{
         margin-bottom:var(--large-spacing);
+        position:relative;
     }
 }
 
@@ -58,21 +55,6 @@
                 background-size:100%;
                 outline:none;
                 cursor:pointer;
-            }
-
-        .filters{
-            display:block;
-
-            @media screen and (min-width:768px) {
-                flex:1;
-            }
-        }
-
-            .filter-link{
-                display:inline-block;
-                background:var(--filter-link-background-color);
-                border-radius:var(--search-input-border-radius);
-                padding:1px 10px;
             }
 
     .load-more-button{

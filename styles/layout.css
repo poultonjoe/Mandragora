@@ -89,6 +89,10 @@ body{
         padding-top:140px;
     }
 
+    .blog & {
+        padding-top:36px;
+    }
+
     @media screen and (min-width:768px) {
         padding-top:140px;
         width:var(--max-content-width);
@@ -96,6 +100,10 @@ body{
         ._404 &,
         .thanks & {
             padding-top:180px;
+        }
+
+        .blog & {
+            padding-top:76px;
         }
     }
 }

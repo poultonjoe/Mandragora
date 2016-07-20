@@ -154,9 +154,9 @@ function mandragora_scripts() {
 
 	wp_enqueue_script( 'mandragora-script', get_template_directory_uri() . '/dist/index.js', array( 'jquery' ), '20160412', true );
 
-	wp_localize_script( 'mandragora-script', 'screenReaderText', array(
-		'expand'   => __( 'expand child menu', 'mandragora' ),
-		'collapse' => __( 'collapse child menu', 'mandragora' ),
-	) );
+	// wp_localize_script( 'mandragora-script', 'screenReaderText', array(
+	// 	'expand'   => __( 'expand child menu', 'mandragora' ),
+	// 	'collapse' => __( 'collapse child menu', 'mandragora' ),
+	// ) );
 }
 add_action( 'wp_enqueue_scripts', 'mandragora_scripts' );

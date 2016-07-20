@@ -47,13 +47,13 @@
         color:var(--hero-title-color);
     }
 
-    .hero-lead-in{
+    .hero-content p:first-child{
         color:var(--hero-title-color);
         font-size:1.25em;
         font-weight: bold;
     }
 
-    .hero :last-child{
+    .hero-content p:last-child{
         margin:0;
     }
 

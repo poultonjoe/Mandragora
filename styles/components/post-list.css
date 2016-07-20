@@ -82,8 +82,9 @@
         padding:var(--small-spacing) 0 0;
     }
 
-        .services-post-title{
-            color:var(--services-post-title-color);
+        .services-post-title,
+        .services-post-title>a{
+            color:var(--services-post-title-color)!important;
         }
 
 .featured-post{

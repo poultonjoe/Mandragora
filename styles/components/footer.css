@@ -109,9 +109,12 @@
                     .footer-menu-items>li>a{
                         color:#fff;
                         
-                        &.is-active,
                         &:hover{
                             text-decoration:underline;
                         }
+                    }
+                    
+                    .footer-menu-items>.current_page_item>a{
+                        text-decoration:underline;
                     }
 

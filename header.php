@@ -43,8 +43,10 @@
                 endif; ?>
             </nav>
             <div class="logo">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="logo-link"><?php _e('Mandragora', 'mandragora') ?></a>
+                <a href="<?php echo esc_url( home_url( '/'.pll_current_language() ) ); ?>" rel="home" class="logo-link"><?php _e('Mandragora', 'mandragora') ?></a>
             </div>
             <a href="#main-menu" class="menu-button"><span><?php _e('Toggle menu', 'mandragora') ?></span></a>
         </div>
     </header>
+    
+    <main role="main" class="site-content">

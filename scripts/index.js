@@ -3,24 +3,34 @@ import {toggleMenu, stickyHeader} from './header';
 import {filePicker} from './file';
 import {setMinimumDate} from './date';
 import {toggleAddressFields} from './address';
+import {pagination} from './pagination';
 
-function bindHandlers() {
+function bindHandlers() {    
+    // Add window listeners
     window.addEventListener('resize', setBackgroundHeight);
     window.addEventListener('scroll', () => {
         stickyHeader();
         setBackgroundHeight();
     });
-    const menuButton = document.querySelector('.menu-button');
-    menuButton.addEventListener('click', toggleMenu, false);
-    
-    const fileInput = document.querySelector('.form-input-file');
-    if (fileInput) fileInput.addEventListener('change', filePicker, false);
+
+    // Add document listeners
+    document.addEventListener('click', e => {
+        toggleMenu(e);
+        
+        const pager = document.querySelector('.load-more-button');
+        if (pager) pagination(e);
+    }, false);
+
+    document.addEventListener('change', e => {
+        const fileInput = document.querySelector('.form-input-file');
+        if (fileInput) filePicker(e);
+
+        const collectionInput = document.querySelector('.collection-method');
+        if (collectionInput) toggleAddressFields(e);
+    }, false);    
 
     const dateInput = document.querySelector('.form-input-date');
-    if (dateInput) dateInput.setAttribute('min', setMinimumDate());
-
-    const collectionInput = document.querySelector('.collection-method');
-    if (collectionInput) collectionInput.addEventListener('change', toggleAddressFields, false);
+    if (dateInput) dateInput.setAttribute('min', setMinimumDate());   
 }
 
 export default function init() {

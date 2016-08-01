@@ -44,6 +44,15 @@
         border-radius:var(--blog-post-image-border-radius);
         height:300px;
         margin:var(--blog-post-image-margin);
+        position:relative;
+        overflow:hidden;
+
+        img{
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+        }
     }
 
     .blog-post-header{
@@ -103,7 +112,8 @@
     }
 
     .comments-list,
-    .comment-replies{
+    .comment-replies,
+    .children{
         margin:0;
         padding:0;
         list-style:none;
@@ -130,6 +140,7 @@
                     top:0;
                     left:0;
                     background:var(--bunker);
+                    overflow:hidden;
                 }
 
                 .comment-author{
@@ -137,10 +148,16 @@
                     margin:0 0.2em 0.2em 0;
                 }
 
-                .comment-reply{
+                .comment-reply-link{
                     display:inline-block;
                     font-size:0.75em;
                     color:var(--mantis);
+                }
+
+                .comment-edit-link,
+                #cancel-comment-reply-link{
+                    display:inline-block;
+                    font-size:0.75em;
                 }
 
                 .comment-date{

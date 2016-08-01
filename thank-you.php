@@ -5,7 +5,7 @@
  * @since Mandragora 1.0
  */
 ?>
-
+<main role="main" class="site-content">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     <section class="hero hero-contact-thanks">
         <h1 class="hero-title">
@@ -16,5 +16,5 @@
         </div>
     </section>
 	<?php endwhile; endif; ?>
-
+</main>
 <?php get_footer(); ?>

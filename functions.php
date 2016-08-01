@@ -53,7 +53,8 @@ function mandragora_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 1200, 9999 );
+	add_image_size('blog-thumb', 300, 200, array( 'center', 'center' ) );
+	add_image_size('blog-post', 560, 560, array( 'center', 'center' ) );
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
@@ -72,29 +73,6 @@ function mandragora_setup() {
 		'gallery',
 		'caption',
 	) );
-
-	/*
-	 * Enable support for Post Formats.
-	 *
-	 * See: https://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
-		'gallery',
-		'status',
-		'audio',
-		'chat',
-	) );
-
-	/*
-	 * This theme styles the visual editor to resemble the theme style,
-	 * specifically font, colors, icons, and column width.
-	 *//*
-	add_editor_style( array( 'css/editor-style.css', twentysixteen_fonts_url() ) );*/
 }
 endif; // mandragora_setup
 add_action( 'after_setup_theme', 'mandragora_setup' );
@@ -114,7 +92,7 @@ add_action( 'wp_head', 'mandragora_javascript_detection', 0 );
 /**
  * Enqueues scripts and styles.
  *
- * @since Twenty Sixteen 1.0
+ * @since Mandragora 1.0
  */
 function mandragora_scripts() {
 	// Theme stylesheet.
@@ -127,3 +105,24 @@ function mandragora_scripts() {
 	wp_enqueue_script( 'mandragora-script', get_template_directory_uri() . '/dist/index.js', array( 'jquery' ), '20160412', true );
 }
 add_action( 'wp_enqueue_scripts', 'mandragora_scripts' );
+
+/**
+ * Comment layout.
+ *
+ * @since Mandragora 1.0
+ */
+function mandragora_comments($comment, $args, $depth) { ?>
+   <li <?php comment_class('comment'); ?>>
+		<div class="comment-header">
+			<div class="comment-author-avatar"><?php echo get_avatar($comment,$size='40'); ?></div>
+			<h3 class="comment-author"><?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?></h3>
+			<?php edit_comment_link(__('(Edit)', 'mandragora'),'  ','') ?>
+			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+			<time class="comment-date" datetime="<?php echo comment_time('c'); ?>"><?php the_time('l jS F Y'); ?> @ <?php the_time('g:iA'); ?></time>
+		</div>
+		<?php if ($comment->comment_approved == '0') : ?>
+			<div class="alert info"><?php _e('Your comment is awaiting moderation.', 'mandragora') ?></div>
+		<?php endif; ?>
+		<div class="comment-body"><?php comment_text() ?></div>
+<?php
+}

@@ -48,5 +48,3 @@
             <a href="#main-menu" class="menu-button"><span><?php _e('Toggle menu', 'mandragora') ?></span></a>
         </div>
     </header>
-    
-    <main role="main" class="site-content">

@@ -94,25 +94,36 @@
 
 	var _address = __webpack_require__(8);
 
+	var _pagination = __webpack_require__(9);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function bindHandlers() {
+	    // Add window listeners
 	    window.addEventListener('resize', _background2.default);
 	    window.addEventListener('scroll', function () {
 	        (0, _header.stickyHeader)();
 	        (0, _background2.default)();
 	    });
-	    var menuButton = document.querySelector('.menu-button');
-	    menuButton.addEventListener('click', _header.toggleMenu, false);
 
-	    var fileInput = document.querySelector('.form-input-file');
-	    if (fileInput) fileInput.addEventListener('change', _file.filePicker, false);
+	    // Add document listeners
+	    document.addEventListener('click', function (e) {
+	        (0, _header.toggleMenu)(e);
+
+	        var pager = document.querySelector('.load-more-button');
+	        if (pager) (0, _pagination.pagination)(e);
+	    }, false);
+
+	    document.addEventListener('change', function (e) {
+	        var fileInput = document.querySelector('.form-input-file');
+	        if (fileInput) (0, _file.filePicker)(e);
+
+	        var collectionInput = document.querySelector('.collection-method');
+	        if (collectionInput) (0, _address.toggleAddressFields)(e);
+	    }, false);
 
 	    var dateInput = document.querySelector('.form-input-date');
 	    if (dateInput) dateInput.setAttribute('min', (0, _date.setMinimumDate)());
-
-	    var collectionInput = document.querySelector('.collection-method');
-	    if (collectionInput) collectionInput.addEventListener('change', _address.toggleAddressFields, false);
 	}
 
 	function init() {
@@ -158,12 +169,13 @@
 	}
 
 	function toggleMenu(e) {
-	    e.preventDefault();
+	    if (e.target.classList.contains('menu-button') || e.target.parentNode.classList.contains('menu-button')) {
+	        e.preventDefault();
+	        var html = document.documentElement;
+	        var menuButton = document.querySelector('.menu-button');
 
-	    var html = document.documentElement;
-	    var menuButton = document.querySelector('.menu-button');
-
-	    html.classList.toggle('menu-visible');
+	        html.classList.toggle('menu-visible');
+	    }
 	}
 
 /***/ },
@@ -220,6 +232,48 @@
 	        addressFields.style.display = 'initial';
 	    } else {
 	        addressFields.style.display = 'none';
+	    }
+	}
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.pagination = pagination;
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	function pagination(e) {
+	    if (e.target.classList.contains('load-more-button')) {
+	        (function () {
+	            e.preventDefault();
+	            var container = document.querySelector('.site-content');
+	            var postList = container.querySelector('.post-list');
+	            var oldLink = container.querySelector('.load-more-button');
+	            var url = e.target.href;
+
+	            fetch(url).then(function (response) {
+	                response.text().then(function (content) {
+	                    ;
+	                    var tmp = document.createElement('div');
+	                    tmp.innerHTML = content;
+	                    var newPosts = tmp.querySelector('.post-list').querySelectorAll('.post');
+	                    var newLink = tmp.querySelector('.load-more-button');
+
+	                    container.removeChild(oldLink);
+	                    if (newLink) container.appendChild(newLink);
+
+	                    [].concat(_toConsumableArray(newPosts)).forEach(function (post) {
+	                        postList.appendChild(post);
+	                    });
+	                });
+	            });
+	        })();
 	    }
 	}
 

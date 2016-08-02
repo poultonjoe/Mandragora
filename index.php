@@ -13,7 +13,7 @@ get_header() ?>
 
     <?php if (is_home()) :
         if (!get_query_var('paged')) :
-            $cat = pll_current_language() == 'en' ? 30 : 34;
+            $cat = pll_current_language() == 'en' ? 7 : 6;
             $feat_query = new WP_Query('catch='.$cat.'&showposts=1');
             if ($feat_query->have_posts()) : while ($feat_query->have_posts()) : $feat_query->the_post(); ?>
                 <article class="post featured-post hero-blog">
@@ -31,7 +31,7 @@ get_header() ?>
                 </article>
         <?php endwhile; endif; endif;
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        $the_query = new WP_Query('cat=-18,-20&paged='.$paged);
+        $the_query = new WP_Query('cat=-3,-9&paged='.$paged);
         if (get_next_posts_link('', $the_query->max_num_pages)) : ?>
             <a href="<?php $npl=explode('"',get_next_posts_link('', $the_query->max_num_pages)); $npl_url=$npl[1]; echo $npl_url ?>" title="<?php _e('Load more', 'mandragora'); ?>" class="load-more-button"><?php _e('Load more', 'mandragora'); ?></a>    
         <?php wp_reset_postdata(); endif;

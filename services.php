@@ -18,9 +18,9 @@
     <?php
         $current_lang = pll_current_language();
         if ($current_lang == 'en') :
-            $servicesCategoryId = 18;
+            $servicesCategoryId = 3;
         else :
-            $servicesCategoryId = 20;
+            $servicesCategoryId = 9;
         endif;
     ?>
     <?php query_posts('cat='.$servicesCategoryId); if (have_posts()) : ?>

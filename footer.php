@@ -12,7 +12,7 @@
     <footer role="contentinfo" class="site-footer">
         <div class="site-footer-inner clearfix">
             <div class="footer-info">
-                <div class="footer-info-copyright"><?php printf(__('Copyright Mandragora Consulting %$1s %$2s', 'mandragora'), '&copy;', date_i18n('Y')) ?></div>
+                <div class="footer-info-copyright"><?php printf(__('Copyright Mandragora Consulting &copy; %s', 'mandragora'), date_i18n('Y')) ?></div>
                 <div class="footer-info-registration"><?php _e('Registration number 12341234XXX32D', 'mandragora') ?></div>
             </div>
             <nav role="navigation" class="footer-menu">

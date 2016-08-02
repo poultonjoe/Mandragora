@@ -18,9 +18,9 @@
     <?php
         $current_lang = pll_current_language();
         if ($current_lang == 'en') :
-            $servicesCategoryId = 18;
+            $servicesCategoryId = 3;
         else :
-            $servicesCategoryId = 20;
+            $servicesCategoryId = 9;
         endif; ?>
             <section class="home-section about-mandragora">
                 <h1 class="home-section-title"><?php the_field('services_section_title') ?></h1>
@@ -61,9 +61,9 @@
     <?php
     wp_reset_postdata();
     if ($current_lang == 'en') :
-        $featuredCategoryId = 30;
+        $featuredCategoryId = 7;
     else :
-        $featuredCategoryId = 34;
+        $featuredCategoryId = 6;
     endif;
     query_posts(array('cat' => $featuredCategoryId, 'posts_per_page' => 1, 'category__not_in' => array($servicesCategoryId))); if (have_posts()) : ?>
         <section class="home-section whats-new">

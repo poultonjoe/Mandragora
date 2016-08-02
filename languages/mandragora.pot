@@ -5,9 +5,9 @@ msgstr ""
 "Project-Id-Version: mandragora\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Tue Jul 19 2016 22:01:54 GMT+0100 (BST)\n"
-"POT-Revision-Date: Mon Aug 01 2016 11:12:17 GMT+0100 (BST)\n"
+"POT-Revision-Date: Tue Aug 02 2016 19:59:36 GMT+0100 (BST)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: \n"
+"Last-Translator: admin <lee.ellam@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
@@ -22,264 +22,341 @@ msgstr ""
 "_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
 "esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
-"X-Generator: Loco - https://localise.biz/"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Loco-Target-Locale: en_US"
 
-#: ../404.php:11 ../archive.php:46 ../search.php:43
-msgid "Oops... 404!"
+#: ../functions.php:61
+msgctxt "Primary menu label"
+msgid "Primary Menu"
 msgstr ""
 
-#: ../404.php:12 ../archive.php:47 ../search.php:44
-msgid "Page not found, let us redirect you."
+#: ../functions.php:62
+msgctxt "Language switcher label"
+msgid "Language Switcher Menu"
 msgstr ""
 
-#: ../archive.php:35 ../front-page.php:82 ../index.php:29 ../index.php:52 ..
-#: /search.php:32
+#: ../functions.php:118
+#, php-format
+msgctxt "Blog post author name"
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr ""
+
+#: ../functions.php:119
+msgctxt "Blog post edit link"
+msgid "(Edit)"
+msgstr ""
+
+#: ../functions.php:124
+msgctxt "Comment moderation alert"
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#. Name of the template
+msgctxt "Thank you template name"
+msgid "Thank You"
+msgstr ""
+
+#. Name of the template
+msgctxt "Contact template name"
+msgid "Contact"
+msgstr ""
+
+#: ../contact.php:74
+msgctxt "Contact form error message"
+msgctxt "There was an error submitting the form."
+msgstr ""
+
+#: ../contact.php:79 ../contact.php:80
+msgctxt "Contact form first name label"
+msgid "first name"
+msgstr ""
+
+#: ../contact.php:83 ../contact.php:84
+msgctxt "Contact form last name label"
+msgid "last name"
+msgstr ""
+
+#: ../contact.php:88 ../contact.php:89
+msgctxt "Contact form email label"
+msgid "e-mail address"
+msgstr ""
+
+#: ../contact.php:92 ../contact.php:93
+msgctxt "Contact form subject label"
+msgid "subject"
+msgstr ""
+
+#: ../contact.php:97
+msgctxt "Contact form work type label"
+msgid "work type"
+msgstr ""
+
+#: ../contact.php:99
+msgctxt "Contact form work type default option"
+msgid "type of work"
+msgstr ""
+
+#: ../contact.php:100
+msgctxt "Contact form work type option"
+msgid "Simple Translation"
+msgstr ""
+
+#: ../contact.php:101
+msgctxt "Contact form work type option"
+msgid "Sworn Translation"
+msgstr ""
+
+#: ../contact.php:102
+msgctxt "Contact form work type option"
+msgid "Interpreting Services"
+msgstr ""
+
+#: ../contact.php:103
+msgctxt "Contact form work type option"
+msgid "Proofreading and Editing"
+msgstr ""
+
+#: ../contact.php:104
+msgctxt "Contact form work type option"
+msgid "Transcription and Editing"
+msgstr ""
+
+#: ../contact.php:105
+msgctxt "Contact form work type option"
+msgid "Other Enquiries"
+msgstr ""
+
+#: ../contact.php:109
+msgctxt "Contact form delivery date label"
+msgid "delivery date"
+msgstr ""
+
+#: ../contact.php:113 ../contact.php:115
+msgctxt "Contact form collection method label"
+msgid "collection method"
+msgstr ""
+
+#: ../contact.php:125 ../contact.php:126
+msgctxt "Contact form address label"
+msgid "address"
+msgstr ""
+
+#: ../contact.php:131 ../contact.php:132
+msgctxt "Contact form city label"
+msgid "city"
+msgstr ""
+
+#:  ../contact.php:135 ../contact.php:137
+msgctxt "Contact form country label"
+msgid "country"
+msgstr ""
+
+#: ../contact.php:144 ../contact.php:145
+msgctxt "Contact form zip code label"
+msgid "zip code"
+msgstr ""
+
+#: ../contact.php:149 ../contact.php:150
+msgctxt "Contact form file label"
+msgid "upload document"
+msgstr ""
+
+#: ../contact.php:151
+msgctxt "Contact form file upload browse button"
+msgid "browse"
+msgstr ""
+
+#: ../contact.php:154
+msgctxt "Contact form message label"
+msgid "message"
+msgstr ""
+
+#: ../contact.php:157
+msgctxt "Contact form captcha label"
+msgid "If you want to submit this form, do not enter anything in this field"
+msgstr ""
+
+#: ../contact.php:158
+msgctxt "Contact form footer help text"
+msgid "required"
+msgstr ""
+
+#: ../contact.php:159
+msgctxt "Contact form submit button"
+msgid "Send enquiry"
+msgstr ""
+
+#: ../search.php:16
+#, php-format
+msgctxt "Search page results title"
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../search.php:32 ../index.php:29 ../index.php:52 ../archive.php:35 ../front-
+#: page.php:82
+msgctxt "Blog post read more link title text"
 msgid "Read more of this post"
 msgstr ""
 
-#: ../archive.php:35 ../front-page.php:82 ../index.php:29 ../index.php:52 ..
-#: /search.php:32
+#: ../search.php:32 ../index.php:29 ../index.php:52 ../archive.php:35 ../front-
+#: page.php:82
+msgctxt "Blog post read more link"
 msgid "Read more"
 msgstr ""
 
-#: ../archive.php:41 ../archive.php:41 ../index.php:36 ../index.php:36 ../search.
-#: php:38 ../search.php:38
+#: ../search.php:38 ../search.php:38 ../index.php:36 ../index.php:36 ../archive.
+#: php:41 ../archive.php:41
+msgctxt "Blog page load more link"
 msgid "Load more"
 msgstr ""
 
+#: ../search.php:43 ../archive.php:46 ../404.php:11
+msgctxt "Posts not found title (same as 404 template)"
+msgid "Oops... 404!"
+msgstr ""
+
+#: ../search.php:44 ../archive.php:47 ../404.php:12
+msgctxt "Posts not found text (same as 404 template)"
+msgid "Page not found, let us redirect you."
+msgstr ""
+
+#. Name of the template
+msgctxt "Services template name"
+msgid "Services"
+msgstr ""
+
+#: ../single.php:46
+msgctxt "Blog post navigation"
+msgid "Newer Post"
+msgstr ""
+
+#: ../single.php:56
+msgctxt "Blog post navigation"
+msgid "Older Post"
+msgstr ""
+
 #: ../comments.php:13
+msgctxt "Comment form reply header"
 msgid "Leave a Reply"
 msgstr ""
 
 #: ../comments.php:13
 #, php-format
+msgctxt "Comment form reply to comment header"
 msgid "Leave a Reply to %s"
 msgstr ""
 
 #: ../comments.php:19
+msgctxt "Comment form logged in as text"
 msgid "Logged in as"
 msgstr ""
 
 #: ../comments.php:19
+msgctxt "Comment form log out link"
 msgid "Log out"
 msgstr ""
 
-#: ../comments.php:22
-msgid "Name"
-msgstr ""
-
-#: ../comments.php:23
+#: ../comments.php:22 ../comments.php:23
+msgctxt "Comment form name label"
 msgid "Name*"
 msgstr ""
 
-#: ../comments.php:26
-msgid "Mail"
-msgstr ""
-
-#: ../comments.php:27
+#: ../comments.php:26 ../comments.php:27
+msgctxt "Comment form email label"
 msgid "Email address*"
 msgstr ""
 
-#. Name of the template
-msgid "Contact"
+#: ../searchform.php:13
+msgctxt "Search form label"
+msgid "Search"
 msgstr ""
 
-#: ../contact.php:79 ../contact.php:80
-msgid "first name"
-msgstr ""
-
-#: ../contact.php:83 ../contact.php:84
-msgid "last name"
-msgstr ""
-
-#: ../contact.php:88
-msgid "email"
-msgstr ""
-
-#: ../contact.php:89
-msgid "e-mail address"
-msgstr ""
-
-#: ../contact.php:92 ../contact.php:93
-msgid "subject"
-msgstr ""
-
-#: ../contact.php:97
-msgid "work type"
-msgstr ""
-
-#: ../contact.php:99
-msgid "type of work"
-msgstr ""
-
-#: ../contact.php:100
-msgid "Simple Translation"
-msgstr ""
-
-#: ../contact.php:101
-msgid "Sworn Translation"
-msgstr ""
-
-#: ../contact.php:102
-msgid "Interpreting Services"
-msgstr ""
-
-#: ../contact.php:103
-msgid "Proofreading and Editing"
-msgstr ""
-
-#: ../contact.php:104
-msgid "Transcription and Editing"
-msgstr ""
-
-#: ../contact.php:105
-msgid "Other Enquiries"
-msgstr ""
-
-#: ../contact.php:109
-msgid "delivery date"
-msgstr ""
-
-#: ../contact.php:113
-msgid "collection-method"
-msgstr ""
-
-#: ../contact.php:115 ../contact.php:135
-msgid "collection method"
-msgstr ""
-
-#: ../contact.php:125 ../contact.php:126
-msgid "address"
-msgstr ""
-
-#: ../contact.php:131 ../contact.php:132
-msgid "city"
-msgstr ""
-
-#: ../contact.php:137
-msgid "country"
-msgstr ""
-
-#: ../contact.php:144 ../contact.php:145
-msgid "zip code"
-msgstr ""
-
-#: ../contact.php:149 ../contact.php:150
-msgid "upload document"
-msgstr ""
-
-#: ../contact.php:151
-msgid "browse"
-msgstr ""
-
-#: ../contact.php:154
-msgid "message"
-msgstr ""
-
-#: ../contact.php:158
-msgid "required"
-msgstr ""
-
-#: ../contact.php:159
-msgid "Send enquiry"
+#: ../searchform.php:15
+msgctxt "Search button text"
+msgid "Submit"
 msgstr ""
 
 #: ../footer.php:15
-msgid "Copyright Mandragora Consulting %$1s %$2s"
+msgctxt "Footer copyright notice"
+msgid "Copyright Mandragora Consulting &copy; %s"
 msgstr ""
 
 #: ../footer.php:16
+msgctxt "Footer registration number"
 msgid "Registration number 12341234XXX32D"
 msgstr ""
 
 #: ../footer.php:30
 #, php-format
+msgctxt "Footer credit"
 msgid ""
 "Designed by <a class=\"site-credit-link\" href=\"%s\" title=\"Collective Type Co."
 "\">Collective Type Co.</a>"
 msgstr ""
 
 #. Name of the template
+msgctxt "Home template name"
 msgid "Home"
 msgstr ""
 
 #: ../front-page.php:53
 #, php-format
+msgctxt "Homepage services section footer"
 msgid ""
 "To view all of our services, please <a href=\"%1$s\" title=\"click here\">click "
 "here</a>."
 msgstr ""
 
 #: ../front-page.php:70
+msgctxt "Homepage featured post title"
 msgid "What's new?"
 msgstr ""
 
 #: ../front-page.php:96
+msgctxt "Homepage contact section title"
 msgid "Let's work together!"
 msgstr ""
 
 #: ../front-page.php:104
 #, php-format
+msgctxt "Homepage contact section content"
 msgid ""
 "For any enquiries, please <a href=\"%1$s\" title=\"Get in touch\">get in "
 "touch</a> on <a href=\"%2$s\" title=\"Email us\">hello@mandragoratranslations."
 "com</a> or <br><a href=\"%3$s\" title=\"Call us\">+65 8888 8888</a>."
 msgstr ""
 
-#: ../functions.php:61
-msgid "Primary Menu"
-msgstr ""
-
-#: ../functions.php:62
-msgid "Language Switcher Menu"
-msgstr ""
-
-#: ../functions.php:118
-#, php-format
-msgid "<cite class=\"fn\">%s</cite>"
-msgstr ""
-
-#: ../functions.php:119
-msgid "(Edit)"
-msgstr ""
-
-#: ../functions.php:124
-msgid "Your comment is awaiting moderation."
-msgstr ""
-
 #: ../header.php:46
+msgctxt "Site name"
 msgid "Mandragora"
 msgstr ""
 
 #: ../header.php:48
+msgctxt "Toggle menu button alt text"
 msgid "Toggle menu"
 msgstr ""
 
-#: ../search.php:16
-#, php-format
-msgid "Search Results for: %s"
+#. Name of the theme
+msgctxt "Theme name"
+msgid "Mandragora Translations Theme"
 msgstr ""
 
-#: ../searchform.php:13
-msgid "Search"
+#. Theme URI of the theme
+msgctxt "Theme URI"
+msgid "http://www.mandragoratranslations.com"
 msgstr ""
 
-#: ../searchform.php:15
-msgid "Submit"
+#. Description of the theme
+msgctxt "Theme description"
+msgid "Custom Theme"
 msgstr ""
 
-#. Name of the template
-msgid "Services"
+#. Author of the theme
+msgctxt "Theme author"
+msgid "Joe Poulton"
 msgstr ""
 
-#: ../single.php:46
-msgid "Newer Post"
-msgstr ""
-
-#: ../single.php:56
-msgid "Older Post"
-msgstr ""
-
-#. Name of the template
-msgid "Thank You"
+#. Author URI of the theme
+msgctxt "Theme author URI"
+msgid "http://www.collectivetype.co"
 msgstr ""

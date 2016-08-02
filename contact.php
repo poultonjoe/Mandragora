@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
 }
 get_header();
 ?>
-
+<main role="main" class="site-content">
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     <section class="hero hero-contact">
         <h1 class="hero-title"><?php get_field('header') ? the_field('header') : the_title(); ?></h1>
@@ -71,7 +71,7 @@ get_header();
             <?php the_content(); ?>
         </div>
         <?php if(isset($hasError) || isset($captchaError)) { ?>
-            <p class="error">There was an error submitting the form.<p>
+            <p class="error"><?php _e('There was an error submitting the form.', 'mandragora'); ?><p>
         <?php } ?>
         <form class="form contact-form" method="post" action="<?php the_permalink(); ?>" enctype="multipart/form-data">
             <div class="form-field-group">
@@ -110,12 +110,12 @@ get_header();
                     <input required id="delivery-date" name="delivery-date" class="form-input form-input-date" type="date">
                 </div>
                 <div class="form-field form-field-select">
-                    <label for="collection-method" class="form-label form-label-hidden"><?php _e('collection-method', 'mandragora'); ?></label>
+                    <label for="collection-method" class="form-label form-label-hidden"><?php _e('collection method', 'mandragora'); ?></label>
                     <select required id="collection-method" name="collection-method" class="form-select collection-method">
                         <option><?php _e('collection method', 'mandragora'); ?></option>
-                        <option value="email">Email</option>
-                        <option value="in person">In person</option>
-                        <option value="post">By post</option>
+                        <option value="email"><?php _e('Email', 'mandragora'); ?></option>
+                        <option value="in person"><?php _e('In person', 'mandragora'); ?></option>
+                        <option value="post"><?php _e('By post', 'mandragora'); ?></option>
                     </select>
                 </div>
             </div>
@@ -132,12 +132,12 @@ get_header();
                         <input required id="city" name="city" class="form-input form-input-text" placeholder="<?php _e('city', 'mandragora'); ?>*">
                     </div>
                     <div class="form-field form-field-select">
-                        <label for="country" class="form-label form-label-hidden"><?php _e('collection method', 'mandragora'); ?></label>
+                        <label for="country" class="form-label form-label-hidden"><?php _e('country', 'mandragora'); ?></label>
                         <select required id="country" name="country" class="form-select country">
                             <option><?php _e('country', 'mandragora'); ?></option>
-                            <option value="United States">United States</option>
-                            <option value="United Kingdom">United Kingdom</option>
-                            <option value="Spain">Spain</option>
+                            <option value="United States"><?php _e('United States', 'mandragora'); ?></option>
+                            <option value="United Kingdom"><?php _e('United Kingdon', 'mandragora'); ?></option>
+                            <option value="Spain"><?php _e('Spain', 'mandragora'); ?></option>
                         </select>
                     </div>
                     <div class="form-field">
@@ -154,11 +154,11 @@ get_header();
                 <label for="message" class="form-label"><?php _e('message', 'mandragora'); ?>*</label>
                 <textarea required id="message" name="message" class="form-textarea"></textarea>
             </div>
-            <label class="form-label form-label-hidden" for="checking">If you want to submit this form, do not enter anything in this field<input type="text" name="checking" id="checking" value="<?php if(isset($_POST['checking'])) echo $_POST['checking'];?>" /></label>
+            <label class="form-label form-label-hidden" for="checking"><?php _e('If you want to submit this form, do not enter anything in this field', 'mandragora'); ?> <input type="text" name="checking" id="checking" value="<?php if(isset($_POST['checking'])) echo $_POST['checking'];?>" /></label>
             <div class="form-footnote">*<?php _e('required', 'mandragora'); ?></div>
             <button name="submit" type="submit" class="button button-primary button-large button-send"><?php _e('Send enquiry', 'mandragora'); ?></button>
         </form>
     </section>
 <?php endwhile; endif; ?>
-
+</main>
 <?php get_footer(); ?>

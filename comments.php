@@ -20,11 +20,11 @@
                 <?php else : ?>
                     <div class="form-field">
                         <label class="form-label form-label-hidden" for="author"><?php _e("Name", "mandragora"); ?> <?php if ($req) echo "(required)"; ?></label>
-                        <input class="form-input" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e('Name*', 'mandragora'); ?>" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
+                        <input class="form-input" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e('Name', 'mandragora'); ?>" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
                     </div>
                     <div class="form-field">
-                        <label class="form-label form-label-hidden" for="email"><?php _e("Mail", "mandragora"); ?> <?php if ($req) echo "(required)"; ?></label>
-                        <input class="form-input" type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e('Email address*', 'mandragora'); ?>" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
+                        <label class="form-label form-label-hidden" for="email"><?php _e("Email address", "mandragora"); ?> <?php if ($req) echo "(required)"; ?></label>
+                        <input class="form-input" type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e('Email address', 'mandragora'); ?>" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
                     </div>
                 <?php endif; ?>
 

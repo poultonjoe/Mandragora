@@ -85,7 +85,7 @@ get_header();
                 </div>
             </div>
             <div class="form-field">
-                <label for="email" class="form-label form-label-hidden"><?php _e('email', 'mandragora'); ?></label>
+                <label for="email" class="form-label form-label-hidden"><?php _e('e-mail address', 'mandragora'); ?></label>
                 <input required id="email" name="email" class="form-input form-input-email" type="email" placeholder="<?php _e('e-mail address', 'mandragora'); ?>*">
             </div>
             <div class="form-field">

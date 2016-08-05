@@ -27,6 +27,12 @@
                 <div class="home-section-content user-defined-markup clearfix">
                     <?php the_field('services_section_content') ?>
                 </div>
+                
+            <section class="home-section about-mandragora">
+                <h1 class="home-section-title"><?php the_field('services_section_title_2') ?></h1>
+                <div class="home-section-content user-defined-markup clearfix">
+                    <?php the_field('services_section_content_2') ?>
+                </div>
 
                 <?php query_posts('posts_per_page=3&cat='.$servicesCategoryId); if (have_posts()) : ?>
                     <div class="home-section-post-list post-list services-list">

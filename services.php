@@ -32,9 +32,8 @@
                     <h1 class="post-title services-post-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
                     <p class="post-text services-post-text"><?php
                         $content = get_the_content();
-                        $content = substr($content, 0, 100);
-                        $content = trim($content);
-                        echo $content."...";
+                        $content = html_cut($content, 100, '...');
+                        echo $content;
                     ?></p>
                     <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php _e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php _e('Read more', 'mandragora'); ?></a></p>
                 </article>

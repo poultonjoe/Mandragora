@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     if(trim($_POST['checking']) !== '') {
         $captchaError = true;
     } else {
-        $emailTo = 'lee.ellam@gmail.com';
+        $emailTo = 'joe@collectivetype.co';
         $subject = "Website enquiry: " . strip_tags($_POST['subject']);
         $firstName = strip_tags($_POST['first-name']);
         $lastName = strip_tags($_POST['last-name']);
@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
                 <p>'.$message.'</p>
             </body>
         </html>';
-        $headers = array('From: Mandragora Translations <admin@mandragoratranslations.com>', 'Reply-To: Haizea Moreno <admin@mandragoratranslations.com>');
+        $headers = array('From: Mandragora Translations <hello@mandragoratranslations.com>', 'Reply-To: Mandragora Translations <hello@mandragoratranslations.com>');
         add_filter( 'wp_mail_content_type', function( $content_type ) {
             return 'text/html';
         });

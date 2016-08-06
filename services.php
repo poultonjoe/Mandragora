@@ -16,12 +16,13 @@
 	<?php endwhile; endif; ?>
 
     <?php
-        $current_lang = pll_current_language();
-        if ($current_lang == 'en') :
-            $servicesCategoryId = 3;
-        else :
-            $servicesCategoryId = 9;
-        endif;
+        // $current_lang = pll_current_language();
+        // if ($current_lang == 'en') :
+        //     $servicesCategoryId = 3;
+        // else :
+        //     $servicesCategoryId = 9;
+        // endif;
+        $servicesCategoryId = pll_get_term(3);
     ?>
     <?php query_posts('cat='.$servicesCategoryId); if (have_posts()) : ?>
         <section class="post-list services-list">
@@ -35,6 +36,7 @@
                         $content = trim($content);
                         echo $content."...";
                     ?></p>
+                    <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php _e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php _e('Read more', 'mandragora'); ?></a></p>
                 </article>
             <?php endwhile; ?>
         </section>

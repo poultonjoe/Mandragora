@@ -118,6 +118,7 @@
     .form-select{
         background:transparent;
         -webkit-appearance:textfield;
+        -moz-appearance:none;
         color:var(--body-font-color);
     }
 

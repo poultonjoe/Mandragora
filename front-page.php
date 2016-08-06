@@ -15,62 +15,54 @@
     </section>
 	<?php endwhile; endif; ?>
 
-    <?php
-        $current_lang = pll_current_language();
-        if ($current_lang == 'en') :
-            $servicesCategoryId = 3;
-        else :
-            $servicesCategoryId = 9;
-        endif; ?>
-            <section class="home-section about-mandragora">
-                <h1 class="home-section-title"><?php the_field('services_section_title') ?></h1>
-                <div class="home-section-content user-defined-markup clearfix">
-                    <?php the_field('services_section_content') ?>
-                </div>
-                
-            <section class="home-section about-mandragora">
-                <h1 class="home-section-title"><?php the_field('services_section_title_2') ?></h1>
-                <div class="home-section-content user-defined-markup clearfix">
-                    <?php the_field('services_section_content_2') ?>
-                </div>
+    <?php $servicesCategoryId = pll_get_term(3); ?>
+    <section class="home-section about-mandragora">
+        <h1 class="home-section-title"><?php the_field('services_section_title') ?></h1>
+        <div class="home-section-content user-defined-markup clearfix">
+            <?php the_field('services_section_content') ?>
+        </div>
+    </section>
+        
+    <section class="home-section about-mandragora">
+        <h1 class="home-section-title"><?php the_field('services_section_title_2') ?></h1>
+        <div class="home-section-content user-defined-markup clearfix">
+            <?php the_field('services_section_content_2') ?>
+        </div>
 
-                <?php query_posts('posts_per_page=3&cat='.$servicesCategoryId); if (have_posts()) : ?>
-                    <div class="home-section-post-list post-list services-list">
-                        <?php while (have_posts()) : the_post(); ?>
-                            <article class="post services-post">
-                                <div class="post-image-wrap services-post-image-wrap"><?php the_post_thumbnail('blog-thumb'); ?></div>
-                                <h1 class="post-title services-post-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-                                <p class="post-text services-post-text"><?php
-                                    $content = get_the_content();
-                                    $content = substr($content, 0, 100);
-                                    $content = trim($content);
-                                    echo $content."...";
-                                ?></p>
-                            </article>
-                        <?php endwhile; ?>
-                    </div>
-                <?php endif; ?>
-                <p class="home-section-text">
-                    <?php
-                        $slug = pll_current_language() == 'en' ? 'services' : 'servicios';
-                        $page = get_page_by_path($slug);
-                        $link = sprintf(
-                            wp_kses(
-                                __('To view all of our services, please <a href="%1$s" title="click here">click here</a>.', 'mandragora'),
-                                array('a' => array('href' => array()))
-                            ),
-                            get_page_link($page->ID)
-                        );
-                        echo $link;
-                    ?></p>
-            </section>
+        <?php query_posts('posts_per_page=3&cat='.$servicesCategoryId); if (have_posts()) : ?>
+            <div class="home-section-post-list post-list services-list">
+                <?php while (have_posts()) : the_post(); ?>
+                    <article class="post services-post">
+                        <div class="post-image-wrap services-post-image-wrap"><?php the_post_thumbnail('blog-thumb'); ?></div>
+                        <h1 class="post-title services-post-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+                        <p class="post-text services-post-text"><?php
+                            $content = get_the_content();
+                            $content = substr($content, 0, 100);
+                            $content = trim($content);
+                            echo $content."...";
+                        ?></p>
+                        <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php _e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php _e('Read more', 'mandragora'); ?></a></p>
+                    </article>
+                <?php endwhile; ?>
+            </div>
+        <?php endif; ?>
+        <p class="home-section-text">
+            <?php
+                $servicesPageId = pll_get_post(8);
+                $link = sprintf(
+                    wp_kses(
+                        __('To view all of our services, please <a href="%1$s" title="click here">click here</a>.', 'mandragora'),
+                        array('a' => array('href' => array()))
+                    ),
+                    get_page_link($servicesPageId)
+                );
+                echo $link;
+            ?></p>
+    </section>
+
     <?php
-    wp_reset_postdata();
-    if ($current_lang == 'en') :
-        $featuredCategoryId = 7;
-    else :
-        $featuredCategoryId = 6;
-    endif;
+    // wp_reset_postdata();
+    $featuredCategoryId = pll_get_term(7);
     query_posts(array('cat' => $featuredCategoryId, 'posts_per_page' => 1, 'category__not_in' => array($servicesCategoryId))); if (have_posts()) : ?>
         <section class="home-section whats-new">
             <h1 class="home-section-title"><?php _e('What\'s new?', 'mandragora') ?></h1>
@@ -101,7 +93,7 @@
         <div class="contact-us-logo"></div>
         <h1 class="contact-us-title"><?php _e('Let\'s work together!', 'mandragora') ?></h1>
         <p class="contact-us-lead-in"><?php
-            $contactPageId = $current_lang == 'en' ? 15 : 27;
+            $contactPageId = pll_get_post(15);
             $contactHref = get_page_link($contactPageId);
             $emailHref = 'mailto:hello@mandragoratranslations.com';
             $phoneHref = 'tel:+6588888888';

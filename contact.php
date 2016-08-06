@@ -107,7 +107,7 @@ get_header();
                 </div>
                 <div class="form-field">
                     <label for="delivery-date" class="form-label form-label-hidden"><?php _e('delivery date', 'mandragora'); ?></label>
-                    <input required id="delivery-date" name="delivery-date" class="form-input form-input-date" type="date">
+                    <input required id="delivery-date" name="delivery-date" class="form-input form-input-date" placeholder="<?php _e('delivery date', 'mandragora'); ?>">
                 </div>
                 <div class="form-field form-field-select">
                     <label for="collection-method" class="form-label form-label-hidden"><?php _e('collection method', 'mandragora'); ?></label>

@@ -109,6 +109,7 @@
         border:none;
         border-bottom:var(--form-input-border-width) solid var(--form-input-border-color);
         border-radius:0;
+        padding:0 0 1px;
 
         &:focus{
             outline:none;
@@ -120,10 +121,6 @@
         -webkit-appearance:textfield;
         -moz-appearance:none;
         color:var(--body-font-color);
-    }
-
-    .form-input-date{
-        height:20px;
     }
 
     .form-input-file{

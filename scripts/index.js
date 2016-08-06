@@ -1,3 +1,4 @@
+import Flatpickr from 'flatpickr';
 import setBackgroundHeight from './background';
 import {toggleMenu, stickyHeader} from './header';
 import {filePicker} from './file';
@@ -30,7 +31,12 @@ function bindHandlers() {
     }, false);    
 
     const dateInput = document.querySelector('.form-input-date');
-    if (dateInput) dateInput.setAttribute('min', setMinimumDate());   
+    if (dateInput) {
+        new Flatpickr(dateInput, {
+            dateFormat: 'Y-m-d',
+            minDate: setMinimumDate()
+        });
+    }
 }
 
 export default function init() {

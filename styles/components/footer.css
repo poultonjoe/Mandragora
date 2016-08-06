@@ -91,7 +91,8 @@
                 }
             }
 
-                .footer-menu-item{
+                .footer-menu-item,
+                .footer-menu-items>li{
                     display:inline-block;
                     margin:0 var(--large-spacing) 0 0;
                     
@@ -104,12 +105,16 @@
                     }
                 }
 
-                    .footer-menu-link{
+                    .footer-menu-link,
+                    .footer-menu-items>li>a{
                         color:#fff;
                         
-                        &.is-active,
                         &:hover{
                             text-decoration:underline;
                         }
+                    }
+                    
+                    .footer-menu-items>.current_page_item>a{
+                        text-decoration:underline;
                     }
 

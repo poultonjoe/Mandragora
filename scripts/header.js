@@ -9,11 +9,12 @@ export function stickyHeader() {
     }
 }
 
-export function toggleMenu(e) {
-    e.preventDefault();
-    
-    const html = document.documentElement;
-    const menuButton = document.querySelector('.menu-button');
+export function toggleMenu(e) {    
+    if (e.target.classList.contains('menu-button') || e.target.parentNode.classList.contains('menu-button')) {
+        e.preventDefault();
+        const html = document.documentElement;
+        const menuButton = document.querySelector('.menu-button');
 
-    html.classList.toggle('menu-visible');
+        html.classList.toggle('menu-visible');
+    }
 }

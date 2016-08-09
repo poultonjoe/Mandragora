@@ -808,6 +808,10 @@ a[href^=tel]{
                 line-height:1.5em;
             }
 
+.site-credit a{
+            color: #6fcbda;
+        }
+
 .footer-navigation{
             display:block;
             margin:0 auto;

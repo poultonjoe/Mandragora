@@ -74,6 +74,10 @@
                 line-height:1.5em;
             }
         
+        .site-credit a{
+            color:var(--spray);
+        }
+        
         .footer-navigation{
             display:block;
             margin:0 auto;

@@ -58,8 +58,8 @@ function mandragora_setup() {
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'mandragora' ),
-		'language_switcher'  => __( 'Language Switcher Menu', 'mandragora' ),
+		'primary' => pll__( 'Primary Menu', 'mandragora' ),
+		'language_switcher'  => pll__( 'Language Switcher Menu', 'mandragora' ),
 	) );
 
 	/*
@@ -96,7 +96,7 @@ add_action( 'wp_head', 'mandragora_javascript_detection', 0 );
  */
 function mandragora_scripts() {
 	// Theme stylesheet.
-	wp_enqueue_style( 'mandragora-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'mandragora-style', get_template_directory_uri().'/dist/style.css' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -115,13 +115,13 @@ function mandragora_comments($comment, $args, $depth) { ?>
    <li <?php comment_class('comment'); ?>>
 		<div class="comment-header">
 			<div class="comment-author-avatar"><?php echo get_avatar($comment,$size='40'); ?></div>
-			<h3 class="comment-author"><?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?></h3>
-			<?php edit_comment_link(__('(Edit)', 'mandragora'),'  ','') ?>
+			<h3 class="comment-author"><?php printf(pll__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?></h3>
+			<?php edit_comment_link(pll__('(Edit)', 'mandragora'),'  ','') ?>
 			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
 			<time class="comment-date" datetime="<?php echo comment_time('c'); ?>"><?php the_time('l jS F Y'); ?> @ <?php the_time('g:iA'); ?></time>
 		</div>
 		<?php if ($comment->comment_approved == '0') : ?>
-			<div class="alert info"><?php _e('Your comment is awaiting moderation.', 'mandragora') ?></div>
+			<div class="alert info"><?php pll_e('Your comment is awaiting moderation.', 'mandragora') ?></div>
 		<?php endif; ?>
 		<div class="comment-body"><?php comment_text() ?></div>
 <?php

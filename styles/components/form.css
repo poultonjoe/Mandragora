@@ -31,7 +31,6 @@
 
         .form-field-group & {
             @media screen and (min-width:768px) {
-                /*flex-grow:1;*/
                 width:32%;
                 margin:var(--form-field-grouped-margin);
 
@@ -42,6 +41,13 @@
                 &:last-child{
                     margin-right:0;
                 }
+            }
+        }
+
+        .address-fields &,
+        .name-fields & {
+            @media screen and (min-width:768px) {
+                width:48%;
             }
         }
     }
@@ -119,8 +125,14 @@
     .form-select{
         background:transparent;
         -webkit-appearance:textfield;
-        -moz-appearance:none;
         color:var(--body-font-color);
+    }
+
+    @-moz-document url-prefix() {
+        .form-select{
+            height:22px;
+            -moz-appearance:none;
+        }
     }
 
     .form-input-file{

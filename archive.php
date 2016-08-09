@@ -31,19 +31,19 @@ get_header(); ?>
                         $content = html_cut($content, 100, '...');
                         echo $content;
                 ?></p>
-                <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php _e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php _e('Read more', 'mandragora'); ?></a></p>
+                <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php pll_e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php pll_e('Read more', 'mandragora'); ?></a></p>
             </div>
         </article>
     <?php endwhile; ?>
     </section>
     <?php if (get_next_posts_link('')) : ?>
-        <a href="<?php $npl=explode('"',get_next_posts_link('')); $npl_url=$npl[1]; echo $npl_url ?>" title="<?php _e('Load more', 'mandragora'); ?>" class="load-more-button"><?php _e('Load more', 'mandragora'); ?></a>    
+        <a href="<?php $npl=explode('"',get_next_posts_link('')); $npl_url=$npl[1]; echo $npl_url ?>" title="<?php pll_e('Load more', 'mandragora'); ?>" class="load-more-button"><?php pll_e('Load more', 'mandragora'); ?></a>    
     <?php endif; endif; 
 
 else : ?>
-    <section class="hero hero-blog">
-        <h1 class="hero-title"><?php _e('Oops... 404!', 'mandragora') ?></h1>
-        <p class="hero-lead-in"><?php _e('Page not found, let us redirect you.', 'mandragora') ?></p>
+    <section class="hero hero-404">
+        <h1 class="hero-title"><?php pll_e('Oops... 404!', 'mandragora') ?></h1>
+        <p class="hero-lead-in"><?php pll_e('Page not found, let us redirect you.', 'mandragora') ?></p>
     </section>
 <?php endif; ?>
 

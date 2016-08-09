@@ -40,7 +40,7 @@
                             $content = html_cut($content, 200, '...');
                             echo $content;
                         ?></p>
-                        <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php _e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php _e('Read more', 'mandragora'); ?></a></p>
+                        <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php pll_e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php pll_e('Read more', 'mandragora'); ?></a></p>
                     </article>
                 <?php endwhile; ?>
             </div>
@@ -50,7 +50,7 @@
                 $servicesPageId = pll_get_post(8);
                 $link = sprintf(
                     wp_kses(
-                        __('To view all of our services, please <a href="%1$s" title="click here">click here</a>.', 'mandragora'),
+                        pll__('To view all of our services, please <a href="%1$s" title="click here">click here</a>.', 'mandragora'),
                         array('a' => array('href' => array()))
                     ),
                     get_page_link($servicesPageId)
@@ -62,9 +62,9 @@
     <?php
     // wp_reset_postdata();
     $featuredCategoryId = pll_get_term(7);
-    query_posts(array('cat' => $featuredCategoryId, 'posts_per_page' => 1, 'category__not_in' => array($servicesCategoryId))); if (have_posts()) : ?>
+    query_posts(array('cat' => $featuredCategoryId, 'posts_per_page' => 1, 'categorypll__not_in' => array($servicesCategoryId))); if (have_posts()) : ?>
         <section class="home-section whats-new">
-            <h1 class="home-section-title"><?php _e('What\'s new?', 'mandragora') ?></h1>
+            <h1 class="home-section-title"><?php pll_e('What\'s new?', 'mandragora') ?></h1>
             <?php while (have_posts()) : the_post(); ?>
                 <article class="post featured-post">
                     <div class="post-image-wrap"><?php the_post_thumbnail('blog-post'); ?></div>
@@ -75,7 +75,7 @@
                             $content = html_cut($content, 100, '...');
                             echo $content;
                         ?></p>
-                        <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php _e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php _e('Read more', 'mandragora'); ?></a></p>
+                        <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php pll_e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php pll_e('Read more', 'mandragora'); ?></a></p>
                     </div>
                 </article>
             <?php endwhile; ?>
@@ -89,7 +89,7 @@
 <div class="after-content">
     <section class="contact-us clearfix">
         <div class="contact-us-logo"></div>
-        <h1 class="contact-us-title"><?php _e('Let\'s work together!', 'mandragora') ?></h1>
+        <h1 class="contact-us-title"><?php pll_e('Let\'s work together!', 'mandragora') ?></h1>
         <p class="contact-us-lead-in"><?php
             $contactPageId = pll_get_post(15);
             $contactHref = get_page_link($contactPageId);
@@ -97,7 +97,7 @@
             $phoneHref = 'tel:+6588888888';
             $link = sprintf(
                 wp_kses(
-                    __('For any enquiries, please <a href="%1$s" title="Get in touch">get in touch</a> on <a href="%2$s" title="Email us">hello@mandragoratranslations.com</a> or <br><a href="%3$s" title="Call us">+65 8888 8888</a>.', 'mandragora'),
+                    pll__('For any enquiries, please <a href="%1$s" title="Get in touch">get in touch</a> on <a href="%2$s" title="Email us">hello@mandragoratranslations.com</a> or <br><a href="%3$s" title="Call us">+65 8888 8888</a>.', 'mandragora'),
                     array('a' => array('href' => array()))
                 ),
                 esc_url($contactHref),

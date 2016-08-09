@@ -1,8 +1,14 @@
 export function toggleAddressFields(e) {
-    const addressFields = document.querySelector('.address-fields');
-    if (e.target.value === 'post') {
-        addressFields.style.display = 'initial';
-    } else {
-        addressFields.style.display = 'none';
+    const dropdown = document.querySelector('#collection-method');
+    if (e.type === 'change' && e.target === dropdown) {
+        const container = document.querySelector('.address-fields');
+        const addressFields = container.querySelectorAll('input, select');
+        if (e.target.value === 'post') {
+            container.style.display = 'initial';
+            Array.from(addressFields).forEach(el => el.required = true);
+        } else {
+            container.style.display = 'none';
+            Array.from(addressFields).forEach(el => el.required = false);
+        }
     }
 }

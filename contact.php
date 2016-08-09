@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     if(trim($_POST['checking']) !== '') {
         $captchaError = true;
     } else {
-        $emailTo = 'joe@collectivetype.co';
+        $emailTo = get_bloginfo('adminpll_email');
         $subject = "Website enquiry: " . strip_tags($_POST['subject']);
         $firstName = strip_tags($_POST['first-name']);
         $lastName = strip_tags($_POST['last-name']);
@@ -21,22 +21,24 @@ if (isset($_POST['submit'])) {
         $city = strip_tags($_POST['city']);
         $country = strip_tags($_POST['country']);
         $zipCode = strip_tags($_POST['zip-code']);
+        $region = strip_tags($_POST['region']);
         $message = strip_tags($_POST['message']);
 
         $body = '
         <html>
             <body>
-                <p><strong>Name:</strong> '.$firstName.' '.$lastName.'</p>
-                <p><strong>Email address:</strong> '.$emailAddress.'</p>
-                <p><strong>Work Type:</strong> '.$workType.'</p>
-                <p><strong>Delivery Date:</strong> '.$deliveryDate.'</p>
-                <p><strong>Collection Method:</strong> '.$collectionMethod.'</p>';
+                <div><strong>Name:</strong> '.$firstName.' '.$lastName.'<br />
+                <strong>Email address:</strong> '.$emailAddress.'<br />
+                <strong>Work Type:</strong> '.$workType.'<br />
+                <strong>Delivery Date:</strong> '.$deliveryDate.'<br />
+                <strong>Collection Method:</strong> '.$collectionMethod.'<br />';
         if ($collectionMethod == 'post') {
-            $body .= '<p><strong>Address:</strong> '.$address.', '.$city.', '.$country.', '.$zipCode.'</p>';
+            $body .= '<strong>Address:</strong> '.$address.', '.$city.', '.$country.', '.$zipCode.'<br />';
+            $body .= '<strong>Region:</strong> '.$region.'<br />';
         }
         $body .= '
-                <p><strong>Message:</strong></p>
-                <p>'.$message.'</p>
+                <strong>Message:</strong><br />
+                '.$message.'</div>
             </body>
         </html>';
         $headers = array('From: Mandragora Translations <hello@mandragoratranslations.com>', 'Reply-To: Mandragora Translations <hello@mandragoratranslations.com>');
@@ -71,92 +73,101 @@ get_header();
             <?php the_content(); ?>
         </div>
         <?php if(isset($hasError) || isset($captchaError)) { ?>
-            <p class="error"><?php _e('There was an error submitting the form.', 'mandragora'); ?><p>
+            <p class="error"><?php pll_e('There was an error submitting the form.', 'mandragora'); ?><p>
         <?php } ?>
         <form class="form contact-form" method="post" action="<?php the_permalink(); ?>" enctype="multipart/form-data">
-            <div class="form-field-group">
+            <div class="form-field-group name-fields">
                 <div class="form-field">
-                    <label for="first-name" class="form-label form-label-hidden"><?php _e('first name', 'mandragora'); ?></label>
-                    <input required id="first-name" name="first-name" class="form-input form-input-text" placeholder="<?php _e('first name', 'mandragora'); ?>*">
+                    <label for="first-name" class="form-label form-label-hidden"><?php pll_e('first name', 'mandragora'); ?></label>
+                    <input required id="first-name" name="first-name" class="form-input form-input-text" placeholder="<?php pll_e('first name', 'mandragora'); ?>*">
                 </div>
                 <div class="form-field">
-                    <label for="last-name" class="form-label form-label-hidden"><?php _e('last name', 'mandragora'); ?></label>
-                    <input required id="last-name" name="last-name" class="form-input form-input-text" placeholder="<?php _e('last name', 'mandragora'); ?>*">
+                    <label for="last-name" class="form-label form-label-hidden"><?php pll_e('last name', 'mandragora'); ?></label>
+                    <input required id="last-name" name="last-name" class="form-input form-input-text" placeholder="<?php pll_e('last name', 'mandragora'); ?>*">
                 </div>
             </div>
             <div class="form-field">
-                <label for="email" class="form-label form-label-hidden"><?php _e('e-mail address', 'mandragora'); ?></label>
-                <input required id="email" name="email" class="form-input form-input-email" type="email" placeholder="<?php _e('e-mail address', 'mandragora'); ?>*">
+                <label for="email" class="form-label form-label-hidden"><?php pll_e('e-mail address', 'mandragora'); ?></label>
+                <input required id="email" name="email" class="form-input form-input-email" type="email" placeholder="<?php pll_e('e-mail address', 'mandragora'); ?>*">
             </div>
             <div class="form-field">
-                <label for="subject" class="form-label form-label-hidden"><?php _e('subject', 'mandragora'); ?></label>
-                <input required id="subject" name="subject" class="form-input form-input-text" placeholder="<?php _e('subject', 'mandragora'); ?>*">
+                <label for="subject" class="form-label form-label-hidden"><?php pll_e('subject', 'mandragora'); ?></label>
+                <input required id="subject" name="subject" class="form-input form-input-text" placeholder="<?php pll_e('subject', 'mandragora'); ?>*">
             </div>
             <div class="form-field-group">
                 <div class="form-field form-field-select">
-                    <label for="work-type" class="form-label form-label-hidden"><?php _e('work type', 'mandragora'); ?></label>
+                    <label for="work-type" class="form-label form-label-hidden"><?php pll_e('work type', 'mandragora'); ?></label>
                     <select required id="work-type" name="work-type" class="form-select">
-                        <option><?php _e('type of work', 'mandragora'); ?></option>
-                        <option value="Simple Translation"><?php _e('Simple Translation', 'mandragora'); ?></option>
-                        <option value="Sworn Translation"><?php _e('Sworn Translation', 'mandragora'); ?></option>
-                        <option value="Interpreting Services"><?php _e('Interpreting Services', 'mandragora'); ?></option>
-                        <option value="Proofreading and Editing"><?php _e('Proofreading and Editing', 'mandragora'); ?></option>
-                        <option value="Transcription and Editing"><?php _e('Transcription and Editing', 'mandragora'); ?></option>
-                        <option value="Other"><?php _e('Other Enquiries', 'mandragora'); ?></option>
+                        <option><?php pll_e('type of work', 'mandragora'); ?></option>
+                        <option value="Simple Translation"><?php pll_e('Simple Translation', 'mandragora'); ?></option>
+                        <option value="Sworn Translation"><?php pll_e('Sworn Translation', 'mandragora'); ?></option>
+                        <option value="Interpreting Services"><?php pll_e('Interpreting Services', 'mandragora'); ?></option>
+                        <option value="Proofreading and Editing"><?php pll_e('Proofreading and Editing', 'mandragora'); ?></option>
+                        <option value="Transcription and Editing"><?php pll_e('Transcription and Editing', 'mandragora'); ?></option>
+                        <option value="Other"><?php pll_e('Other Enquiries', 'mandragora'); ?></option>
                     </select>
                 </div>
                 <div class="form-field">
-                    <label for="delivery-date" class="form-label form-label-hidden"><?php _e('delivery date', 'mandragora'); ?></label>
-                    <input required id="delivery-date" name="delivery-date" class="form-input form-input-date" placeholder="<?php _e('delivery date', 'mandragora'); ?>">
+                    <label for="delivery-date" class="form-label form-label-hidden"><?php pll_e('delivery date', 'mandragora'); ?></label>
+                    <input required id="delivery-date" name="delivery-date" class="form-input form-input-date" placeholder="<?php pll_e('delivery date', 'mandragora'); ?>">
                 </div>
                 <div class="form-field form-field-select">
-                    <label for="collection-method" class="form-label form-label-hidden"><?php _e('collection method', 'mandragora'); ?></label>
+                    <label for="collection-method" class="form-label form-label-hidden"><?php pll_e('collection method', 'mandragora'); ?></label>
                     <select required id="collection-method" name="collection-method" class="form-select collection-method">
-                        <option><?php _e('collection method', 'mandragora'); ?></option>
-                        <option value="email"><?php _e('Email', 'mandragora'); ?></option>
-                        <option value="in person"><?php _e('In person', 'mandragora'); ?></option>
-                        <option value="post"><?php _e('By post', 'mandragora'); ?></option>
+                        <option><?php pll_e('collection method', 'mandragora'); ?></option>
+                        <option value="email"><?php pll_e('Email', 'mandragora'); ?></option>
+                        <option value="in person"><?php pll_e('In person', 'mandragora'); ?></option>
+                        <option value="post"><?php pll_e('By post', 'mandragora'); ?></option>
                     </select>
                 </div>
             </div>
             <div class="form-field-group address-fields" style="display:none">
                 <div class="form-field-group">
                     <div class="form-field">
-                        <label for="address" class="form-label form-label-hidden"><?php _e('address', 'mandragora'); ?></label>
-                        <input required id="address" name="address" class="form-input form-input-text" placeholder="<?php _e('address', 'mandragora'); ?>*">
+                        <label for="address" class="form-label form-label-hidden"><?php pll_e('address', 'mandragora'); ?></label>
+                        <input id="address" name="address" class="form-input form-input-text" placeholder="<?php pll_e('address', 'mandragora'); ?>*">
+                    </div>
+                    <div class="form-field">
+                        <label for="city" class="form-label form-label-hidden"><?php pll_e('city', 'mandragora'); ?></label>
+                        <input id="city" name="city" class="form-input form-input-text" placeholder="<?php pll_e('city', 'mandragora'); ?>*">
                     </div>
                 </div>
                 <div class="form-field-group">
                     <div class="form-field">
-                        <label for="city" class="form-label form-label-hidden"><?php _e('city', 'mandragora'); ?></label>
-                        <input required id="city" name="city" class="form-input form-input-text" placeholder="<?php _e('city', 'mandragora'); ?>*">
-                    </div>
-                    <div class="form-field form-field-select">
-                        <label for="country" class="form-label form-label-hidden"><?php _e('country', 'mandragora'); ?></label>
-                        <select required id="country" name="country" class="form-select country">
-                            <option><?php _e('country', 'mandragora'); ?></option>
-                            <option value="United States"><?php _e('United States', 'mandragora'); ?></option>
-                            <option value="United Kingdom"><?php _e('United Kingdon', 'mandragora'); ?></option>
-                            <option value="Spain"><?php _e('Spain', 'mandragora'); ?></option>
-                        </select>
+                        <label for="country" class="form-label form-label-hidden"><?php pll_e('country', 'mandragora'); ?></label>
+                        <input id="country" name="country" class="form-input form-input-text" placeholder="<?php pll_e('country', 'mandragora'); ?>*">
                     </div>
                     <div class="form-field">
-                        <label for="zip-code" class="form-label form-label-hidden"><?php _e('zip code', 'mandragora'); ?></label>
-                        <input required id="zip-code" name="zip-code" class="form-input form-input-text" placeholder="<?php _e('zip code', 'mandragora'); ?>*">
+                        <label for="zip-code" class="form-label form-label-hidden"><?php pll_e('zip code', 'mandragora'); ?></label>
+                        <input id="zip-code" name="zip-code" class="form-input form-input-text" placeholder="<?php pll_e('zip code', 'mandragora'); ?>*">
+                    </div>
+                </div>
+                <div class="form-field-group">
+                    <div class="form-field form-field-select">
+                        <label for="region" class="form-label form-label-hidden"><?php pll_e('region', 'mandragora'); ?></label>
+                        <select id="region" name="region" class="form-select region">
+                            <option><?php pll_e('region', 'mandragora'); ?></option>
+                            <option value="Singapore"><?php pll_e('Singapore', 'mandragora'); ?></option>
+                            <option value="Malaysia"><?php pll_e('Malaysia', 'mandragora'); ?></option>
+                            <option value="Rest of South East Asia, Hong Kong, Taiwan, Macau"><?php pll_e('Rest of South East Asia, Hong Kong, Taiwan, Macau', 'mandragora'); ?></option>
+                            <option value="Rest of Asia, Australia, New Zealand"><?php pll_e('Rest of Asia, Australia, New Zealand', 'mandragora'); ?></option>
+                            <option value="Europe, USA, Canada, Mexico"><?php pll_e('Europe, USA, Canada, Mexico', 'mandragora'); ?></option>
+                            <option value="Rest of the World"><?php pll_e('Rest of the World', 'mandragora'); ?></option>
+                        </select>
                     </div>
                 </div>
             </div>
-            <div class="form-field form-field-file" data-file="<?php _e('upload document', 'mandragora'); ?>">
-                <label for="file" class="form-label form-label-hidden"><?php _e('upload document', 'mandragora'); ?></label>
-                <input required id="file" name="attachment" class="form-input form-input-file" type="file" placeholder="<?php _e('browse', 'mandragora'); ?>*">
+            <div class="form-field form-field-file" data-file="<?php pll_e('upload document', 'mandragora'); ?>">
+                <label for="file" class="form-label form-label-hidden"><?php pll_e('upload document', 'mandragora'); ?></label>
+                <input required id="file" name="attachment" class="form-input form-input-file" type="file" placeholder="<?php pll_e('browse', 'mandragora'); ?>*">
             </div>
             <div class="form-field">
-                <label for="message" class="form-label"><?php _e('message', 'mandragora'); ?>*</label>
+                <label for="message" class="form-label"><?php pll_e('message', 'mandragora'); ?>*</label>
                 <textarea required id="message" name="message" class="form-textarea"></textarea>
             </div>
-            <label class="form-label form-label-hidden" for="checking"><?php _e('If you want to submit this form, do not enter anything in this field', 'mandragora'); ?> <input type="text" name="checking" id="checking" value="<?php if(isset($_POST['checking'])) echo $_POST['checking'];?>" /></label>
-            <div class="form-footnote">*<?php _e('required', 'mandragora'); ?></div>
-            <button name="submit" type="submit" class="button button-primary button-large button-send"><?php _e('Send enquiry', 'mandragora'); ?></button>
+            <label class="form-label form-label-hidden" for="checking"><?php pll_e('If you want to submit this form, do not enter anything in this field', 'mandragora'); ?> <input type="text" name="checking" id="checking" value="<?php if(isset($_POST['checking'])) echo $_POST['checking'];?>" /></label>
+            <div class="form-footnote">*<?php pll_e('required', 'mandragora'); ?></div>
+            <button name="submit" type="submit" class="button button-primary button-large button-send"><?php pll_e('Send enquiry', 'mandragora'); ?></button>
         </form>
     </section>
 <?php endwhile; endif; ?>

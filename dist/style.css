@@ -1308,9 +1308,12 @@ body:after {
 .form-field-group .form-field {
 }
 
+.address-fields .form-field, .name-fields .form-field {
+}
+
 @media screen and (min-width:768px) {
 
-  .form-field-group .form-field {/*flex-grow:1;*/
+  .form-field-group .form-field {
     width: 32%;
     margin: 0 calc(20px / 2) 1em;
   }
@@ -1321,6 +1324,13 @@ body:after {
 
   .form-field-group .form-field:last-child {
     margin-right: 0;
+  }
+            }
+
+@media screen and (min-width:768px) {
+
+  .address-fields .form-field, .name-fields .form-field {
+    width: 48%;
   }
             }
 
@@ -1399,8 +1409,14 @@ body:after {
 .form-select{
         background:transparent;
         -webkit-appearance:textfield;
-        -moz-appearance:none;
         color: #28292b;
+    }
+
+@-moz-document url-prefix() {
+        .form-select{
+            height:22px;
+            -moz-appearance:none;
+        }
     }
 
 .form-input-file{

@@ -53,11 +53,11 @@
 
 	'use strict';
 
-	__webpack_require__(11);
-
 	__webpack_require__(2);
 
-	var _index = __webpack_require__(3);
+	__webpack_require__(3);
+
+	var _index = __webpack_require__(4);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -75,6 +75,12 @@
 
 /***/ },
 /* 3 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -84,23 +90,23 @@
 	});
 	exports.default = init;
 
-	var _flatpickr = __webpack_require__(10);
+	var _flatpickr = __webpack_require__(5);
 
 	var _flatpickr2 = _interopRequireDefault(_flatpickr);
 
-	var _background = __webpack_require__(4);
+	var _background = __webpack_require__(6);
 
 	var _background2 = _interopRequireDefault(_background);
 
-	var _header = __webpack_require__(5);
+	var _header = __webpack_require__(7);
 
-	var _file = __webpack_require__(6);
+	var _file = __webpack_require__(8);
 
-	var _date = __webpack_require__(7);
+	var _date = __webpack_require__(9);
 
-	var _address = __webpack_require__(8);
+	var _address = __webpack_require__(10);
 
-	var _pagination = __webpack_require__(9);
+	var _pagination = __webpack_require__(11);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -143,153 +149,7 @@
 	}
 
 /***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = setBackgroundHeight;
-	function setBackgroundHeight() {
-	    var background = document.querySelector('.background');
-	    background.style.height = document.documentElement.offsetHeight + 'px';
-	}
-
-/***/ },
 /* 5 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.stickyHeader = stickyHeader;
-	exports.toggleMenu = toggleMenu;
-	function stickyHeader() {
-	    var scroll = window.scrollY;
-	    var html = document.documentElement;
-
-	    if (scroll > 0) {
-	        html.classList.add('is-sticky');
-	    } else {
-	        html.classList.remove('is-sticky');
-	    }
-	}
-
-	function toggleMenu(e) {
-	    if (e.target.classList.contains('menu-button') || e.target.parentNode.classList.contains('menu-button')) {
-	        e.preventDefault();
-	        var html = document.documentElement;
-	        var menuButton = document.querySelector('.menu-button');
-
-	        html.classList.toggle('menu-visible');
-	    }
-	}
-
-/***/ },
-/* 6 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.filePicker = filePicker;
-	function filePicker(e) {
-	    var value = e.target.value;
-
-	    var element = e.target.parentElement;
-	    var path = value.split('\\');
-	    var filename = path[path.length - 1];
-
-	    element.setAttribute('data-file', filename);
-	}
-
-/***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.setMinimumDate = setMinimumDate;
-	function setMinimumDate() {
-	    var minLeadTime = arguments.length <= 0 || arguments[0] === undefined ? 1 : arguments[0];
-
-	    var now = new Date();
-	    var minDate = new Date(now.setDate(now.getDate() + minLeadTime));
-	    return minDate.toISOString().substr(0, 10);
-	}
-
-/***/ },
-/* 8 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.toggleAddressFields = toggleAddressFields;
-	function toggleAddressFields(e) {
-	    var addressFields = document.querySelector('.address-fields');
-	    if (e.target.value === 'post') {
-	        addressFields.style.display = 'initial';
-	    } else {
-	        addressFields.style.display = 'none';
-	    }
-	}
-
-/***/ },
-/* 9 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.pagination = pagination;
-
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-	function pagination(e) {
-	    if (e.target.classList.contains('load-more-button')) {
-	        (function () {
-	            e.preventDefault();
-	            var container = document.querySelector('.site-content');
-	            var postList = container.querySelector('.post-list');
-	            var oldLink = container.querySelector('.load-more-button');
-	            var url = e.target.href;
-
-	            fetch(url).then(function (response) {
-	                response.text().then(function (content) {
-	                    ;
-	                    var tmp = document.createElement('div');
-	                    tmp.innerHTML = content;
-	                    var newPosts = tmp.querySelector('.post-list').querySelectorAll('.post');
-	                    var newLink = tmp.querySelector('.load-more-button');
-
-	                    container.removeChild(oldLink);
-	                    if (newLink) container.appendChild(newLink);
-
-	                    [].concat(_toConsumableArray(newPosts)).forEach(function (post) {
-	                        postList.appendChild(post);
-	                    });
-	                });
-	            });
-	        })();
-	    }
-	}
-
-/***/ },
-/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1627,10 +1487,160 @@
 	}
 
 /***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = setBackgroundHeight;
+	function setBackgroundHeight() {
+	    var background = document.querySelector('.background');
+	    background.style.height = document.documentElement.offsetHeight + 'px';
+	}
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.stickyHeader = stickyHeader;
+	exports.toggleMenu = toggleMenu;
+	function stickyHeader() {
+	    var scroll = window.scrollY;
+	    var html = document.documentElement;
+
+	    if (scroll > 0) {
+	        html.classList.add('is-sticky');
+	    } else {
+	        html.classList.remove('is-sticky');
+	    }
+	}
+
+	function toggleMenu(e) {
+	    if (e.target.classList.contains('menu-button') || e.target.parentNode.classList.contains('menu-button')) {
+	        e.preventDefault();
+	        var html = document.documentElement;
+	        var menuButton = document.querySelector('.menu-button');
+
+	        html.classList.toggle('menu-visible');
+	    }
+	}
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.filePicker = filePicker;
+	function filePicker(e) {
+	    var value = e.target.value;
+
+	    var element = e.target.parentElement;
+	    var path = value.split('\\');
+	    var filename = path[path.length - 1];
+
+	    element.setAttribute('data-file', filename);
+	}
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.setMinimumDate = setMinimumDate;
+	function setMinimumDate() {
+	    var minLeadTime = arguments.length <= 0 || arguments[0] === undefined ? 1 : arguments[0];
+
+	    var now = new Date();
+	    var minDate = new Date(now.setDate(now.getDate() + minLeadTime));
+	    return minDate.toISOString().substr(0, 10);
+	}
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.toggleAddressFields = toggleAddressFields;
+	function toggleAddressFields(e) {
+	    var dropdown = document.querySelector('#collection-method');
+	    if (e.type === 'change' && e.target === dropdown) {
+	        var container = document.querySelector('.address-fields');
+	        var addressFields = container.querySelectorAll('input, select');
+	        if (e.target.value === 'post') {
+	            container.style.display = 'initial';
+	            Array.from(addressFields).forEach(function (el) {
+	                return el.required = true;
+	            });
+	        } else {
+	            container.style.display = 'none';
+	            Array.from(addressFields).forEach(function (el) {
+	                return el.required = false;
+	            });
+	        }
+	    }
+	}
+
+/***/ },
 /* 11 */
 /***/ function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.pagination = pagination;
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	function pagination(e) {
+	    if (e.target.classList.contains('load-more-button')) {
+	        (function () {
+	            e.preventDefault();
+	            var container = document.querySelector('.site-content');
+	            var postList = container.querySelector('.post-list');
+	            var oldLink = container.querySelector('.load-more-button');
+	            var url = e.target.href;
+
+	            fetch(url).then(function (response) {
+	                response.text().then(function (content) {
+	                    ;
+	                    var tmp = document.createElement('div');
+	                    tmp.innerHTML = content;
+	                    var newPosts = tmp.querySelector('.post-list').querySelectorAll('.post');
+	                    var newLink = tmp.querySelector('.load-more-button');
+
+	                    container.removeChild(oldLink);
+	                    if (newLink) container.appendChild(newLink);
+
+	                    [].concat(_toConsumableArray(newPosts)).forEach(function (post) {
+	                        postList.appendChild(post);
+	                    });
+	                });
+	            });
+	        })();
+	    }
+	}
 
 /***/ }
 /******/ ]);

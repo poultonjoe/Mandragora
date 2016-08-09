@@ -43,7 +43,7 @@ get_header() ?>
         $newer_title = strip_tags(str_replace('"', '', $newer_post->post_title));
         echo '
             <div class="blog-post-navigation-item blog-post-navigation-item-newer">
-                <a rel="next" href="'.get_permalink($newer_post->ID).'" title="'.$newer_title.'" class="blog-post-navigation-link">&lt; '.__('Newer Post', 'mandragora').'</a>
+                <a rel="next" href="'.get_permalink($newer_post->ID).'" title="'.$newer_title.'" class="blog-post-navigation-link">&lt; '.pll__('Newer Post', 'mandragora').'</a>
                 <div class="blog-post-navigation-title">'.$newer_title.'</div>
             </div>
         ';
@@ -53,7 +53,7 @@ get_header() ?>
         $older_title = strip_tags(str_replace('"', '', $older_post->post_title));
         echo '
             <div class="blog-post-navigation-item blog-post-navigation-item-older">
-                <a rel="prev" href="'.get_permalink($older_post->ID).'" title="'.$older_title.'" class="blog-post-navigation-link">'.__('Older Post', 'mandragora').' &gt;</a>
+                <a rel="prev" href="'.get_permalink($older_post->ID).'" title="'.$older_title.'" class="blog-post-navigation-link">'.pll__('Older Post', 'mandragora').' &gt;</a>
                 <div class="blog-post-navigation-title">'.$older_title.'</div>
             </div>
         ';

@@ -35,7 +35,7 @@
                         $content = html_cut($content, 100, '...');
                         echo $content;
                     ?></p>
-                    <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php _e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php _e('Read more', 'mandragora'); ?></a></p>
+                    <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php pll_e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php pll_e('Read more', 'mandragora'); ?></a></p>
                 </article>
             <?php endwhile; ?>
         </section>

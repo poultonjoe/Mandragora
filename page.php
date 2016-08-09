@@ -14,6 +14,11 @@ get_header() ?>
                 <?php the_content(); ?>
             </div>
         </section>
-    <?php endwhile; endif; ?>
+    <?php endwhile; else : ?>
+        <section class="hero hero-404">
+            <h1 class="hero-title"><?php pll_e('Oops... 404!', 'mandragora') ?></h1>
+            <p class="hero-lead-in"><?php pll_e('Page not found, let us redirect you.', 'mandragora') ?></p>
+        </section>
+    <?php endif; ?>
 </main>
 <?php get_footer() ?>

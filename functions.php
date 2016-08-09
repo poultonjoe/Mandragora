@@ -115,7 +115,7 @@ function mandragora_comments($comment, $args, $depth) { ?>
    <li <?php comment_class('comment'); ?>>
 		<div class="comment-header">
 			<div class="comment-author-avatar"><?php echo get_avatar($comment,$size='40'); ?></div>
-			<h3 class="comment-author"><?php printf(pll__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?></h3>
+			<h3 class="comment-author"><?php printf(pll__('<cite class=fn>%s</cite>'), get_comment_author_link()) ?></h3>
 			<?php edit_comment_link(pll__('(Edit)', 'mandragora'),'  ','') ?>
 			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
 			<time class="comment-date" datetime="<?php echo comment_time('c'); ?>"><?php the_time('l jS F Y'); ?> @ <?php the_time('g:iA'); ?></time>

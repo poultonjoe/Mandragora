@@ -50,7 +50,7 @@
                 $servicesPageId = pll_get_post(8);
                 $link = sprintf(
                     wp_kses(
-                        pll__('To view all of our services, please <a href="%1$s" title="click here">click here</a>.', 'mandragora'),
+                        pll__('To view all of our services, please <a href=%s>click here</a>.', 'mandragora'),
                         array('a' => array('href' => array()))
                     ),
                     get_page_link($servicesPageId)
@@ -64,7 +64,7 @@
     $featuredCategoryId = pll_get_term(7);
     query_posts(array('cat' => $featuredCategoryId, 'posts_per_page' => 1, 'categorypll__not_in' => array($servicesCategoryId))); if (have_posts()) : ?>
         <section class="home-section whats-new">
-            <h1 class="home-section-title"><?php pll_e('What\'s new?', 'mandragora') ?></h1>
+            <h1 class="home-section-title"><?php pll_e("What&apos;s new?", 'mandragora') ?></h1>
             <?php while (have_posts()) : the_post(); ?>
                 <article class="post featured-post">
                     <div class="post-image-wrap"><?php the_post_thumbnail('blog-post'); ?></div>
@@ -89,7 +89,7 @@
 <div class="after-content">
     <section class="contact-us clearfix">
         <div class="contact-us-logo"></div>
-        <h1 class="contact-us-title"><?php pll_e('Let\'s work together!', 'mandragora') ?></h1>
+        <h1 class="contact-us-title"><?php pll_e("Let&apos;s work together!", 'mandragora') ?></h1>
         <p class="contact-us-lead-in"><?php
             $contactPageId = pll_get_post(15);
             $contactHref = get_page_link($contactPageId);
@@ -97,7 +97,7 @@
             $phoneHref = 'tel:+6588888888';
             $link = sprintf(
                 wp_kses(
-                    pll__('For any enquiries, please <a href="%1$s" title="Get in touch">get in touch</a> on <a href="%2$s" title="Email us">hello@mandragoratranslations.com</a> or <br><a href="%3$s" title="Call us">+65 8888 8888</a>.', 'mandragora'),
+                    pll__('For any enquiries, please <a href=%1$s>get in touch</a> on <a href=%2$s>hello@mandragoratranslations.com</a> or <br><a href=%3$s>+65 8888 8888</a>.', 'mandragora'),
                     array('a' => array('href' => array()))
                 ),
                 esc_url($contactHref),

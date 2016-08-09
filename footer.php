@@ -27,7 +27,7 @@
             <div class="site-credit">
                 <p><?php
                     $url = 'http://www.collectivetype.co';
-                    $link = sprintf(wp_kses(pll__('Designed by <a class="site-credit-link" href="%s" title="Collective Type Co.">Collective Type Co.</a>', 'mandragora'),
+                    $link = sprintf(wp_kses(pll__('Designed by <a class=site-credit-link href=%s >Collective Type Co.</a>', 'mandragora'),
                             array('a' => array('href' => array()))), esc_url($url));
                     echo $link;
                 ?></p>

@@ -125,21 +125,21 @@ get_header();
                 <div class="form-field-group">
                     <div class="form-field">
                         <label for="address" class="form-label form-label-hidden"><?php pll_e('address', 'mandragora'); ?></label>
-                        <input id="address" name="address" class="form-input form-input-text" placeholder="<?php pll_e('address', 'mandragora'); ?>*">
+                        <input id="address" name="address" class="form-input form-input-text" placeholder="<?php pll_e('address', 'mandragora'); ?>">
                     </div>
                     <div class="form-field">
                         <label for="city" class="form-label form-label-hidden"><?php pll_e('city', 'mandragora'); ?></label>
-                        <input id="city" name="city" class="form-input form-input-text" placeholder="<?php pll_e('city', 'mandragora'); ?>*">
+                        <input id="city" name="city" class="form-input form-input-text" placeholder="<?php pll_e('city', 'mandragora'); ?>">
                     </div>
                 </div>
                 <div class="form-field-group">
                     <div class="form-field">
                         <label for="country" class="form-label form-label-hidden"><?php pll_e('country', 'mandragora'); ?></label>
-                        <input id="country" name="country" class="form-input form-input-text" placeholder="<?php pll_e('country', 'mandragora'); ?>*">
+                        <input id="country" name="country" class="form-input form-input-text" placeholder="<?php pll_e('country', 'mandragora'); ?>">
                     </div>
                     <div class="form-field">
                         <label for="zip-code" class="form-label form-label-hidden"><?php pll_e('zip code', 'mandragora'); ?></label>
-                        <input id="zip-code" name="zip-code" class="form-input form-input-text" placeholder="<?php pll_e('zip code', 'mandragora'); ?>*">
+                        <input id="zip-code" name="zip-code" class="form-input form-input-text" placeholder="<?php pll_e('zip code', 'mandragora'); ?>">
                     </div>
                 </div>
                 <div class="form-field-group">
@@ -159,7 +159,7 @@ get_header();
             </div>
             <div class="form-field form-field-file" data-file="<?php pll_e('upload document', 'mandragora'); ?>">
                 <label for="file" class="form-label form-label-hidden"><?php pll_e('upload document', 'mandragora'); ?></label>
-                <input id="file" name="attachment" class="form-input form-input-file" type="file" placeholder="<?php pll_e('browse', 'mandragora'); ?>*">
+                <input id="file" name="attachment" class="form-input form-input-file" type="file" placeholder="<?php pll_e('browse', 'mandragora'); ?>">
             </div>
             <div class="form-field">
                 <label for="message" class="form-label"><?php pll_e('message', 'mandragora'); ?>*</label>

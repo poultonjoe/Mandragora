@@ -97,7 +97,7 @@ get_header();
             <div class="form-field-group">
                 <div class="form-field form-field-select">
                     <label for="work-type" class="form-label form-label-hidden"><?php pll_e('work type', 'mandragora'); ?></label>
-                    <select required id="work-type" name="work-type" class="form-select">
+                    <select id="work-type" name="work-type" class="form-select">
                         <option><?php pll_e('type of work', 'mandragora'); ?></option>
                         <option value="Simple Translation"><?php pll_e('Simple Translation', 'mandragora'); ?></option>
                         <option value="Sworn Translation"><?php pll_e('Sworn Translation', 'mandragora'); ?></option>
@@ -109,11 +109,11 @@ get_header();
                 </div>
                 <div class="form-field">
                     <label for="delivery-date" class="form-label form-label-hidden"><?php pll_e('delivery date', 'mandragora'); ?></label>
-                    <input required id="delivery-date" name="delivery-date" class="form-input form-input-date" placeholder="<?php pll_e('delivery date', 'mandragora'); ?>">
+                    <input id="delivery-date" name="delivery-date" class="form-input form-input-date" placeholder="<?php pll_e('delivery date', 'mandragora'); ?>">
                 </div>
                 <div class="form-field form-field-select">
                     <label for="collection-method" class="form-label form-label-hidden"><?php pll_e('collection method', 'mandragora'); ?></label>
-                    <select required id="collection-method" name="collection-method" class="form-select collection-method">
+                    <select id="collection-method" name="collection-method" class="form-select collection-method">
                         <option><?php pll_e('collection method', 'mandragora'); ?></option>
                         <option value="email"><?php pll_e('Email', 'mandragora'); ?></option>
                         <option value="in person"><?php pll_e('In person', 'mandragora'); ?></option>
@@ -159,7 +159,7 @@ get_header();
             </div>
             <div class="form-field form-field-file" data-file="<?php pll_e('upload document', 'mandragora'); ?>">
                 <label for="file" class="form-label form-label-hidden"><?php pll_e('upload document', 'mandragora'); ?></label>
-                <input required id="file" name="attachment" class="form-input form-input-file" type="file" placeholder="<?php pll_e('browse', 'mandragora'); ?>*">
+                <input id="file" name="attachment" class="form-input form-input-file" type="file" placeholder="<?php pll_e('browse', 'mandragora'); ?>*">
             </div>
             <div class="form-field">
                 <label for="message" class="form-label"><?php pll_e('message', 'mandragora'); ?>*</label>

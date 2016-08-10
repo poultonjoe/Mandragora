@@ -1585,17 +1585,13 @@
 	    var dropdown = document.querySelector('#collection-method');
 	    if (e.type === 'change' && e.target === dropdown) {
 	        var container = document.querySelector('.address-fields');
-	        var addressFields = container.querySelectorAll('input, select');
+	        var region = container.querySelector('#region');
 	        if (e.target.value === 'post') {
 	            container.style.display = 'initial';
-	            Array.from(addressFields).forEach(function (el) {
-	                return el.required = true;
-	            });
+	            region.required = true;
 	        } else {
 	            container.style.display = 'none';
-	            Array.from(addressFields).forEach(function (el) {
-	                return el.required = false;
-	            });
+	            region.required = false;
 	        }
 	    }
 	}

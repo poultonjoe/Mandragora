@@ -50,11 +50,15 @@ get_header() ?>
                 </article>
             <?php endwhile; ?>
     	</section>
-        <?php else : ?>
+        <?php endif;
+        if (get_next_posts_link('', $the_query->max_num_pages)) : ?>
+            <a href="<?php $npl=explode('"',get_next_posts_link('', $the_query->max_num_pages)); $npl_url=$npl[1]; echo $npl_url ?>" title="<?php _e('Load more', 'mandragora'); ?>" class="load-more-button"><?php _e('Load more', 'mandragora'); ?></a>    
+        <?php wp_reset_postdata(); endif;
+    else : ?>
         <section class="hero hero-404">
             <h1 class="hero-title"><?php pll_e('Oops... 404!', 'mandragora') ?></h1>
             <p class="hero-lead-in"><?php pll_e('Page not found, let us redirect you.', 'mandragora') ?></p>
         </section>
-    <?php endif; endif; ?>
+    <?php endif; ?>
 </main>
 <?php get_footer() ?>

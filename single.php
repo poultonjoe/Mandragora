@@ -30,13 +30,13 @@ get_header() ?>
 
 <nav class="blog-post-navigation clearfix">
 <?php
-    if (in_category(array('services', 'servicios'))) {
+    $category = pll_get_term(3);
+    if (in_category($category)) {
         $newer_post = get_next_post(true);
         $older_post = get_previous_post(true);
     } else {
-        $cats = array(get_category_by_slug('services'), get_category_by_slug('servicios'));
-        $newer_post = get_next_post(false, implode(',', $cats));
-        $older_post = get_previous_post(false, implode(',', $cats));
+        $newer_post = get_next_post(false, $category);
+        $older_post = get_previous_post(false, $category);
     }
     
     if ($newer_post) {

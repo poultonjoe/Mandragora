@@ -118,7 +118,7 @@ function mandragora_comments($comment, $args, $depth) { ?>
 			<h3 class="comment-author"><?php printf(pll__('<cite class=fn>%s</cite>'), get_comment_author_link()) ?></h3>
 			<?php edit_comment_link(pll__('(Edit)', 'mandragora'),'  ','') ?>
 			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-			<time class="comment-date" datetime="<?php echo comment_time('c'); ?>"><?php the_time('l jS F Y'); ?> @ <?php the_time('g:iA'); ?></time>
+			<time class="comment-date" datetime="<?php echo comment_time('c'); ?>"><?php the_time(pll__('l jS F Y', 'mandragora')); ?> @ <?php the_time(pll__('g:iA', 'mandragora')); ?></time>
 		</div>
 		<?php if ($comment->comment_approved == '0') : ?>
 			<div class="alert info"><?php pll_e('Your comment is awaiting moderation.', 'mandragora') ?></div>

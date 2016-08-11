@@ -22,7 +22,7 @@ get_header() ?>
                         <h1 class="post-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
                         <p class="post-text"><?php
                             $content = get_the_content();
-                            $content = html_cut($content, 100, '...');
+                            $content = html_cut($content, 200, '...');
                             echo $content;
                         ?></p>
                         <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php pll_e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php _e('Read more', 'mandragora'); ?></a></p>
@@ -42,7 +42,7 @@ get_header() ?>
                         <h1 class="post-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
                         <p class="post-text"><?php
                                 $content = get_the_content();
-                                $content = html_cut($content, 100, '...');
+                                $content = html_cut($content, 200, '...');
                                 echo $content;
                         ?></p>
                         <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php pll_e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php _e('Read more', 'mandragora'); ?></a></p>
@@ -57,7 +57,7 @@ get_header() ?>
     else : ?>
         <section class="hero hero-404">
             <h1 class="hero-title"><?php pll_e('Oops... 404!', 'mandragora') ?></h1>
-            <p class="hero-lead-in"><?php pll_e('Page not found, let us redirect you.', 'mandragora') ?></p>
+            <div class="hero-content"><p><?php pll_e('Page not found, let us redirect you.', 'mandragora') ?></p></div>
         </section>
     <?php endif; ?>
 </main>

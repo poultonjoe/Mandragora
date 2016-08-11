@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     if(trim($_POST['checking']) !== '') {
         $captchaError = true;
     } else {
-        $emailTo = get_bloginfo('adminpll_email');
+        $emailTo = 'lee.ellam@gmail.com';//get_bloginfo('adminpll_email');
         $subject = "Website enquiry: " . strip_tags($_POST['subject']);
         $firstName = strip_tags($_POST['first-name']);
         $lastName = strip_tags($_POST['last-name']);
@@ -28,12 +28,41 @@ if (isset($_POST['submit'])) {
         <html>
             <body>
                 <div><strong>Name:</strong> '.$firstName.' '.$lastName.'<br />
-                <strong>Email address:</strong> '.$emailAddress.'<br />
-                <strong>Work Type:</strong> '.$workType.'<br />
-                <strong>Delivery Date:</strong> '.$deliveryDate.'<br />
-                <strong>Collection Method:</strong> '.$collectionMethod.'<br />';
+                <strong>Email address:</strong> '.$emailAddress.'<br />';
+        if ($workType) {
+            $body .= '<strong>Work Type:</strong> '.$workType.'<br />';
+        }
+
+        if ($deliveryDate) {
+            $body .= '<strong>Delivery Date:</strong> '.$deliveryDate.'<br />';
+        }
+
+        if ($collectionMethod) {
+            $body .= '<strong>Collection Method:</strong> '.$collectionMethod.'<br />';
+        }
+                
         if ($collectionMethod == 'post') {
-            $body .= '<strong>Address:</strong> '.$address.', '.$city.', '.$country.', '.$zipCode.'<br />';
+            if ($address || $city || $country || $zipCode) {
+                $body .= '<strong>Address:</strong> ';
+
+                if ($address) {
+                    $body .= $address;
+                }
+
+                if ($city) {
+                    $body .= $address ? ', '.$city : $city;
+                }
+
+                if ($country) {
+                    $body .= $address || $city ? ', '.$country : $country;
+                }
+
+                if ($zipCode) {
+                    $body .= $address || $city || $country ? ', '.$zipCode : $zipCode;
+                }
+
+                $body .= '<br />';
+            }
             $body .= '<strong>Region:</strong> '.$region.'<br />';
         }
         $body .= '
@@ -41,25 +70,72 @@ if (isset($_POST['submit'])) {
                 '.$message.'</div>
             </body>
         </html>';
+
         $headers = array('From: Mandragora Translations <hello@mandragoratranslations.com>', 'Reply-To: Mandragora Translations <hello@mandragoratranslations.com>');
         add_filter( 'wp_mail_content_type', function( $content_type ) {
             return 'text/html';
         });
-        $uploads = wp_upload_dir();
-        $uploadPath = $uploads['basedir'];
-        $moveFile = move_uploaded_file($_FILES["attachment"]["tmp_name"], $uploadPath.'/'.$_FILES['attachment']['name']);
-        if ($moveFile) {
-            $attachments = array($uploadPath.'/'.$_FILES['attachment']['name']);
-            wp_mail($emailTo, $subject, $body, $headers, $attachments);
-            unlink($uploadPath.'/'.$_FILES['attachment']['name']);
-            
+
+        if ($_FILES['attachment']['size'] > 0) {
+            $maxFileSize = 20971520;
+            $allowedMimeTypes = array(
+                'audio/mpeg3', 'audio/x-mpeg3', 'video/mpeg', 'video/x-mpeg',
+                'video/mp4', 'video/mpeg4', 'video/x-m4v',
+                'audio/m4a', 'audio/x-m4a',
+                'audio/amr',
+                'audio/x-ms-wma',
+                'audio/aac',
+                'audio/wav', 'audio/s-wav', 'audio/wave', 'audio/x-wav',
+                'application/ogg', 'application/x-ogg', 'audio/x-ogg',
+                'audio/webm', 'video/webm',
+
+                'image/jpeg', 'image/pjpeg',
+                'image/gif',
+                'image/png', 'image/x-png',
+
+                'application/pdf', 'application/acrobat', 'application/nappdf', 'application/x-pdf', 'application/vnd.pdf', 'text/pdf', 'text/x-pdf',
+
+                'application/vnd.ms-excel', 'application/excel', 'application/msexcel', 'application/msexcell', 'application/x-dos_ms_excel', 'application/x-excel', 'application/x-ms-excel', 'application/x-msexcel', 'application/x-xls', 'application/xls', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+
+                'application/vnd.ms-word', 'application/doc', 'application/msword', 'application/msword-doc', 'application/vnd.msword', 'application/winword', 'application/word', 'application/x-msw6', 'application/x-msword', 'application/x-msword-doc', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-word.document.12', 'application/vnd.openxmlformats-officedocument.word',
+
+                'text/plain',
+
+                'application/rtf', 'application/richtext', 'application/x-rtf', 'text/richtext', 'text/rtf'
+            );
+
+            $uploads = wp_upload_dir();
+            $uploadPath = $uploads['basedir'];
+
+            // Check mime type & size
+            if (!in_array(mime_content_type($_FILES["attachment"]["tmp_name"]), $allowedMimeTypes)) {
+                $hasError = true;
+            } elseif ($_FILES['attachment']['size'] > $maxFileSize) {
+                $hasError = true;
+            } else {
+                $moveFile = move_uploaded_file($_FILES["attachment"]["tmp_name"], $uploadPath.'/'.$_FILES['attachment']['name']);
+
+                if ($moveFile) {
+                    $attachments = array($uploadPath.'/'.$_FILES['attachment']['name']);
+                    wp_mail($emailTo, $subject, $body, $headers, $attachments);
+                    unlink($uploadPath.'/'.$_FILES['attachment']['name']);
+                    
+                    // Redirect
+                    $slug = pll_current_language() == 'en' ? 'thank-you' : 'gracias';
+                    $page = get_page_by_path($slug);
+                    wp_redirect(get_permalink($page->ID));
+                    exit();
+                } else {
+                    $hasError = true;
+                }
+            }
+        } else {
             // Redirect
+            wp_mail($emailTo, $subject, $body, $headers, array());
             $slug = pll_current_language() == 'en' ? 'thank-you' : 'gracias';
             $page = get_page_by_path($slug);
             wp_redirect(get_permalink($page->ID));
             exit();
-        } else {
-            $hasError = true;
         }
     }
 }
@@ -72,8 +148,12 @@ get_header();
         <div class="hero-content user-defined-markup clearfix">
             <?php the_content(); ?>
         </div>
-        <?php if(isset($hasError) || isset($captchaError)) { ?>
-            <p class="error"><?php pll_e('There was an error submitting the form.', 'mandragora'); ?><p>
+        <?php if(isset($captchaError)) { ?>
+            <p class="error" style="color:red;margin-top:1em"><?php pll_e('There was an error submitting the form.', 'mandragora'); ?><p>
+        <?php } ?>
+
+        <?php if(isset($hasError)) { ?>
+            <p class="error" style="color:red;margin-top:1em"><?php pll_e('Please upload an audio file, document or image, under 20MB', 'mandragora'); ?><p>
         <?php } ?>
         <form class="form contact-form" method="post" action="<?php the_permalink(); ?>" enctype="multipart/form-data">
             <div class="form-field-group name-fields">
@@ -157,7 +237,7 @@ get_header();
                     </div>
                 </div>
             </div>
-            <div class="form-field form-field-file" data-file="<?php pll_e('upload document', 'mandragora'); ?>">
+            <div class="form-field form-field-file" data-file="<?php pll_e('upload document', 'mandragora'); ?>" data-browse="<?php pll_e('browse', 'mandragora'); ?>">
                 <label for="file" class="form-label form-label-hidden"><?php pll_e('upload document', 'mandragora'); ?></label>
                 <input id="file" name="attachment" class="form-input form-input-file" type="file" placeholder="<?php pll_e('browse', 'mandragora'); ?>">
             </div>

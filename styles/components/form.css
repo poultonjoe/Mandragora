@@ -84,7 +84,7 @@
             }
 
             &:after{
-                content:'browse';
+                content:attr(data-browse);
                 display:inline-block;
                 background-color:var(--button-background-color);
                 color:var(--button-color);

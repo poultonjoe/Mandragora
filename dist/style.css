@@ -938,7 +938,7 @@ body:after {
     padding: 100px 20px 0;
 }
 
-._404 .site-content, .thanks .site-content {
+._404 .site-content, .error404 .site-content, .page-template-thank-you .site-content {
   padding-top:140px;
 }
 
@@ -953,8 +953,8 @@ body:after {
     width: 600px;
   }
 
-  ._404 .site-content, .thanks .site-content {
-    padding-top: 180px;
+  ._404 .site-content, .error404 .site-content, .page-template-thank-you .site-content {
+    padding-top: 160px;
   }
 
   .blog .site-content {
@@ -1374,7 +1374,7 @@ body:after {
 }
 
 .form-field-file:after {
-  content: 'browse';
+  content: attr(data-browse);
   display: inline-block;
   background-color: #6fcbda;
   color: #fff;

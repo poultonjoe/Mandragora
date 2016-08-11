@@ -15,13 +15,18 @@ get_header() ?>
     <div class="blog-post-image-wrap"><?php the_post_thumbnail('blog-post'); ?></div>
     <header class="blog-post-header">
         <h1 class="blog-post-title"><?php the_title(); ?></h1>
-        <div class="blog-post-author"><em>By <?php the_author_link(); ?></em></div>
-        <ul class="blog-post-metadata">
-            <li class="blog-post-metadata-item">
-                <time datetime="<?php the_time('c'); ?>"><?php the_time('l jS F Y'); ?> @ <?php the_time('g:iA'); ?></time>
-            </li>
-            <li class="blog-post-metadata-item"><?php the_category( ', ' ); ?></li>
-        </ul>
+        <?php
+        $servicesCategoryId = pll_get_term(3);
+        if (!in_category($servicesCategoryId)) :
+        ?>
+            <div class="blog-post-author"><em>By <?php the_author_link(); ?></em></div>
+            <ul class="blog-post-metadata">
+                <li class="blog-post-metadata-item">
+                    <time datetime="<?php the_time('c'); ?>"><?php the_time('l jS F Y'); ?> @ <?php the_time('g:iA'); ?></time>
+                </li>
+                <li class="blog-post-metadata-item"><?php the_category( ', ' ); ?></li>
+            </ul>
+        <?php endif; ?>
     </header>
     <div class="blog-post-body user-defined-markup">
         <?php the_content(); ?>

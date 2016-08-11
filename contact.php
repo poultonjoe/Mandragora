@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     if(trim($_POST['checking']) !== '') {
         $captchaError = true;
     } else {
-        $emailTo = 'lee.ellam@gmail.com';//get_bloginfo('adminpll_email');
+        $emailTo = get_bloginfo('adminpll_email');
         $subject = "Website enquiry: " . strip_tags($_POST['subject']);
         $firstName = strip_tags($_POST['first-name']);
         $lastName = strip_tags($_POST['last-name']);

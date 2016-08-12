@@ -94,7 +94,7 @@
             $contactPageId = pll_get_post(15);
             $contactHref = get_page_link($contactPageId);
             $emailHref = 'mailto:hello@mandragoratranslations.com';
-            $phoneHref = 'tel:+6588888888';
+            $phoneHref = 'tel:+6590234470';
             $link = sprintf(
                 wp_kses(
                     pll__('For any enquiries, please <a href=%1$s>get in touch</a> on <a href=%2$s>hello@mandragoratranslations.com</a> or <br><a href=%3$s>+65 8888 8888</a>.', 'mandragora'),

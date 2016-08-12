@@ -98,7 +98,12 @@
             $link = sprintf(
                 wp_kses(
                     pll__('For any enquiries, please <a href=%1$s>get in touch</a> on <a href=%2$s>hello@mandragoratranslations.com</a> or <br><a href=%3$s>+65 8888 8888</a>.', 'mandragora'),
-                    array('a' => array('href' => array()))
+                    array(
+                    	'a' => array(
+                    		'href' => array()
+                    	),
+                    	'br' => array()
+                    )
                 ),
                 esc_url($contactHref),
                 esc_url($emailHref),

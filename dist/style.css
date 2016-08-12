@@ -737,6 +737,7 @@ a[href^=tel]{
     font-size:0.9em;
     text-align:center;
     padding-top:20px;
+    clear:both;
 }
 
 .site-credit-link{

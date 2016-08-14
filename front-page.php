@@ -62,7 +62,7 @@
     <?php
     // wp_reset_postdata();
     $featuredCategoryId = pll_get_term(7);
-    query_posts(array('cat' => $featuredCategoryId, 'posts_per_page' => 1, 'categorypll__not_in' => array($servicesCategoryId))); if (have_posts()) : ?>
+    query_posts(array('cat' => $featuredCategoryId, 'posts_per_page' => 1, 'category__not_in' => array($servicesCategoryId))); if (have_posts()) : ?>
         <section class="home-section whats-new">
             <h1 class="home-section-title"><?php pll_e("What&apos;s new?", 'mandragora') ?></h1>
             <?php while (have_posts()) : the_post(); ?>

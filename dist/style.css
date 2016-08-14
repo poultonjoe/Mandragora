@@ -1604,11 +1604,11 @@ input::placeholder{ color: #28292b; opacity:1; }
     margin-bottom: 40px;
 }
 
-.blog-post-navigation-item-newer{
+.blog-post-navigation-item-older{
         float:left;
     }
 
-.blog-post-navigation-item-older{
+.blog-post-navigation-item-newer{
         float:right;
         text-align:right;
     }

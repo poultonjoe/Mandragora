@@ -32,6 +32,24 @@ function bindHandlers() {
 
     const dateInput = document.querySelector('.form-input-date');
     if (dateInput) {
+        if (document.documentElement.lang === 'es-ES') {
+            Flatpickr.init.prototype.l10n.weekdays = {
+                shorthand: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
+                longhand: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+            };
+
+            Flatpickr.init.prototype.l10n.months = {
+                shorthand: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                longhand: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+            };
+
+            Flatpickr.init.prototype.l10n.ordinal = () => {
+                return "º";
+            };
+
+            Flatpickr.init.prototype.l10n.firstDayOfWeek = 1;
+        }
+
         new Flatpickr(dateInput, {
             dateFormat: 'Y-m-d',
             minDate: setMinimumDate()

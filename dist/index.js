@@ -136,6 +136,24 @@
 
 	    var dateInput = document.querySelector('.form-input-date');
 	    if (dateInput) {
+	        if (document.documentElement.lang === 'es-ES') {
+	            _flatpickr2.default.init.prototype.l10n.weekdays = {
+	                shorthand: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
+	                longhand: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+	            };
+
+	            _flatpickr2.default.init.prototype.l10n.months = {
+	                shorthand: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+	                longhand: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+	            };
+
+	            _flatpickr2.default.init.prototype.l10n.ordinal = function () {
+	                return "º";
+	            };
+
+	            _flatpickr2.default.init.prototype.l10n.firstDayOfWeek = 1;
+	        }
+
 	        new _flatpickr2.default(dateInput, {
 	            dateFormat: 'Y-m-d',
 	            minDate: (0, _date.setMinimumDate)()

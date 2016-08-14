@@ -80,11 +80,11 @@
     margin-bottom:var(--large-spacing);
 }
 
-    .blog-post-navigation-item-newer{
+    .blog-post-navigation-item-older{
         float:left;
     }
 
-    .blog-post-navigation-item-older{
+    .blog-post-navigation-item-newer{
         float:right;
         text-align:right;
     }

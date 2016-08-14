@@ -25,13 +25,14 @@ get_header() ?>
                             $content = html_cut($content, 200, '...');
                             echo $content;
                         ?></p>
-                        <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php pll_e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php _e('Read more', 'mandragora'); ?></a></p>
+                        <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php pll_e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php pll_e('Read more', 'mandragora'); ?></a></p>
                     </div>
                 </article>
         <?php endwhile; endif; endif;
         
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        $exclude = '-3,-9';
+        // $exclude = '-3,-9';
+        $exclude = '-'.pll_get_term(3);
         $the_query = new WP_Query('cat='.$exclude.'&paged='.$paged);
         if ($the_query -> have_posts()) : ?>
             <section class="post-list">
@@ -45,14 +46,14 @@ get_header() ?>
                                 $content = html_cut($content, 200, '...');
                                 echo $content;
                         ?></p>
-                        <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php pll_e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php _e('Read more', 'mandragora'); ?></a></p>
+                        <p class="post-read-more"><a href="<?php the_permalink() ?>" title="<?php pll_e('Read more of this post', 'mandragora'); ?>" class="post-read-more-link"><?php pll_e('Read more', 'mandragora'); ?></a></p>
                     </div>
                 </article>
             <?php endwhile; ?>
     	</section>
         <?php endif;
         if (get_next_posts_link('', $the_query->max_num_pages)) : ?>
-            <a href="<?php $npl=explode('"',get_next_posts_link('', $the_query->max_num_pages)); $npl_url=$npl[1]; echo $npl_url ?>" title="<?php _e('Load more', 'mandragora'); ?>" class="load-more-button"><?php _e('Load more', 'mandragora'); ?></a>    
+            <a href="<?php $npl=explode('"',get_next_posts_link('', $the_query->max_num_pages)); $npl_url=$npl[1]; echo $npl_url ?>" title="<?php _e('Load more', 'mandragora'); ?>" class="load-more-button"><?php pll_e('Load more', 'mandragora'); ?></a>    
         <?php wp_reset_postdata(); endif;
     else : ?>
         <section class="hero hero-404">
